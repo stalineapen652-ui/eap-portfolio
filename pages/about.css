@@ -1,0 +1,142 @@
+/* ============================================================
+   ABOUT · warm timeline
+   ============================================================ */
+
+.about-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    padding: 9rem 4.5% 3rem;
+    overflow: hidden;
+    z-index: 2;
+}
+.about-glow {
+    position: absolute;
+    width: 60vw; height: 60vw;
+    left: -10%; top: -10%;
+    background: radial-gradient(circle, rgba(232,132,58,0.18) 0%, transparent 62%);
+    pointer-events: none;
+    animation: glowDrift 16s ease-in-out infinite;
+}
+@keyframes glowDrift { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(3%,2%) scale(1.07);} }
+
+.about-head-inner { position: relative; z-index: 2; max-width: 900px; }
+.about-kicker {
+    display: inline-block;
+    font-size: 0.82rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-deep); font-weight: 600; margin-bottom: 1.5rem;
+}
+.about-title-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -2px;
+}
+.about-title-text .handwritten { font-size: 1.05em; }
+.about-intro {
+    max-width: 52ch;
+    margin: 2rem 0 2.4rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.75;
+    color: var(--ink-soft);
+}
+.about-subtitle {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1rem; flex-wrap: wrap;
+    border-top: 1.5px solid var(--ink);
+    padding-top: 1.2rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 600;
+}
+.about-subtitle em { color: var(--ink-soft); font-style: normal; font-weight: 400; }
+
+/* ───────── TIMELINE ───────── */
+#about-timeline {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 4.5% 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.timeline-track {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 120px;
+    pointer-events: none;
+    z-index: 0;
+}
+#about-path-svg { height: 100%; width: 100%; }
+#about-path { stroke: var(--accent); }
+.path-dot { fill: var(--accent); filter: drop-shadow(0 4px 8px rgba(207,106,34,0.4)); }
+
+.timeline-card {
+    position: relative;
+    z-index: 2;
+    width: 46%;
+    margin: 7vh 0;
+    will-change: transform, opacity;
+}
+.tc-right { margin-left: auto; }
+.tc-left { margin-right: auto; }
+
+.timeline-card-inner {
+    background: #fff8ee;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--r-card);
+    padding: 2.4rem 2.2rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+.timeline-card-inner::before {
+    /* little connector nub toward the spine */
+    content: "";
+    position: absolute;
+    top: 38px;
+    width: 14px; height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid var(--paper);
+}
+.tc-left .timeline-card-inner::before { right: -8px; }
+.tc-right .timeline-card-inner::before { left: -8px; }
+
+.tc-number {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent-deep);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+.tc-heading {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -1px;
+    margin-bottom: 1.2rem;
+    text-transform: lowercase;
+}
+.word-wrapper { overflow: hidden; display: inline-block; vertical-align: bottom; }
+.about-word { display: inline-block; }
+.tc-amp { color: var(--accent); padding: 0 0.15em; }
+.tc-para {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    max-width: 42ch;
+}
+
+@media screen and (max-width: 860px) {
+    .timeline-track { left: 22px; transform: none; width: 60px; }
+    #about-path-svg { width: 60px; }
+    .timeline-card { width: 100%; padding-left: 3rem; margin: 4vh 0; }
+    .tc-right, .tc-left { margin: 4vh 0; }
+    .tc-left .timeline-card-inner::before,
+    .tc-right .timeline-card-inner::before { left: -8px; right: auto; }
+}

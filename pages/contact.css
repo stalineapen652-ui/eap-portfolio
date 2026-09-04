@@ -1,0 +1,138 @@
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-main {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 9rem 4.5% 2rem;
+    overflow: hidden;
+}
+.contact-glow {
+    position: absolute;
+    width: 70vw; height: 70vw;
+    left: 50%; top: 45%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(232,132,58,0.18) 0%, transparent 60%);
+    pointer-events: none;
+    animation: glowDrift 14s ease-in-out infinite;
+}
+@keyframes glowDrift { 0%,100%{ transform: translate(-50%,-50%) scale(1);} 50%{ transform: translate(-50%,-52%) scale(1.07);} }
+
+/* floating doodles */
+.doodle {
+    position: absolute;
+    color: var(--accent);
+    opacity: 0.5;
+    z-index: 1;
+    font-size: 2.4rem;
+    animation: doodleFloat 7s ease-in-out infinite;
+}
+.doodle.d1 { top: 22%; left: 12%; font-size: 3rem; }
+.doodle.d2 { top: 30%; right: 16%; animation-delay: 1.2s; color: var(--ink); opacity: 0.35; }
+.doodle.d3 { bottom: 20%; left: 22%; font-size: 3.4rem; animation-delay: 0.6s; }
+@keyframes doodleFloat { 0%,100%{ transform: translateY(0) rotate(0);} 50%{ transform: translateY(-16px) rotate(12deg);} }
+
+.contact-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3rem;
+    align-items: center;
+    flex: 1;
+}
+
+/* left */
+.contact-subtitle {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+.contact-big {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(3.6rem, 13vw, 11rem);
+    line-height: 0.86;
+    letter-spacing: -3px;
+}
+.contact-big .handwritten { font-size: 1em; }
+.contact-note {
+    max-width: 40ch;
+    margin-top: 1.8rem;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+}
+
+/* right */
+.contact-right {
+    background: #fff8ee;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--r-card);
+    padding: 2.2rem;
+    box-shadow: var(--shadow-sm);
+}
+.form-instruction {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+}
+.email-btn-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.7rem 0.7rem 0.7rem 1.4rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.4s var(--ease-spring), background 0.3s;
+}
+.email-btn-pill:hover { transform: translateY(-3px) rotate(-1deg); background: var(--accent-deep); }
+.email-btn-text { font-size: clamp(0.8rem, 1.5vw, 1rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.submit-arrow-circle {
+    flex-shrink: 0;
+    display: grid; place-items: center;
+    width: 42px; height: 42px;
+    background: var(--accent);
+    color: var(--ink);
+    border-radius: 50%;
+    transition: transform 0.4s var(--ease-spring), background 0.3s, color 0.3s;
+}
+.email-btn-pill:hover .submit-arrow-circle { transform: rotate(45deg); background: var(--paper); }
+.contact-socials { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
+.contact-socials .chip { text-decoration: none; }
+
+/* slim footer bar */
+.contact-foot {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1.5px solid var(--ink);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+}
+
+@media screen and (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+    .doodle { display: none; }
+}

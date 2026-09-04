@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Stalin Eapen</title>
+    <meta name="description"
+        content="About Stalin Eapen — UI Designer based in London, working on real-world projects.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="about.css">
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="about-page">
+
+    <header class="main-header">
+        <a href="../index.html" class="logo-link">
+            <img src="../assets/logo.png" alt="Eap! Logo">
+        </a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <nav class="nav-menu">
+            <a href="work.html" class="nav-link">
+                <span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>
+                <span class="nav-txt">Works</span>
+            </a>
+            <a href="contact.html" class="nav-link">
+                <span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10.5 13.5"/><path d="M21 3l-6.5 18-4-8-8-4L21 3z"/></svg></span>
+                <span class="nav-txt">Contact</span>
+            </a>
+            <a href="https://www.behance.net/stalinceapn" target="_blank" class="behance-link" title="Behance Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-15.144h6.616c2.298 0 5.409.811 5.409 4.461 0 2.815-2.248 3.678-3.694 3.903 1.487.191 4.159 1.507 4.159 4.161 0 3.176-3.375 2.619-6.024 2.619zm-3.466-8.453h2.677c1.768 0 2.813-.535 2.813-2.028 0-1.459-.974-1.871-2.656-1.871h-2.834v3.899zm0 5.641h3.047c2.473 0 3.125-.875 3.125-2.31 0-1.498-1.229-2.13-2.953-2.13h-3.219v4.44z" />
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <main class="about-hero">
+        <div class="about-glow" aria-hidden="true"></div>
+        <h1 class="sr-only">About Stalin Eapen — UI Designer</h1>
+
+        <div class="about-head-inner">
+            <span class="about-kicker reveal">The short story</span>
+            <div class="about-title">
+                <div class="about-title-text reveal">about <span class="handwritten">Me</span></div>
+            </div>
+            <p class="about-intro reveal">
+                I started my creative journey studying B.A. Animation alongside graphic design, where I
+                learned the fundamentals of visual storytelling, composition, and motion. This is where
+                my interest in combining creativity with purpose began.
+            </p>
+            <div class="about-subtitle reveal">
+                <span>UI Designer <em>| for a reason.</em></span>
+                <span>2026</span>
+            </div>
+        </div>
+    </main>
+
+    <section id="about-timeline">
+        <div class="timeline-track" aria-hidden="true">
+            <svg id="about-path-svg" viewBox="0 0 120 2400" preserveAspectRatio="xMidYMid meet" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path id="about-path" d="M60,0
+                       C90,120 20,240 60,380
+                       C100,520 20,640 60,800
+                       C100,960 20,1080 60,1240
+                       C100,1400 20,1520 60,1680
+                       C100,1840 20,1960 60,2400"
+                    stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14" />
+                <circle class="path-dot" cx="60" cy="380" r="8" fill="var(--accent)" />
+                <circle class="path-dot" cx="60" cy="800" r="8" fill="var(--accent)" />
+                <circle class="path-dot" cx="60" cy="1240" r="8" fill="var(--accent)" />
+                <circle class="path-dot" cx="60" cy="1680" r="8" fill="var(--accent)" />
+                <circle class="path-dot" cx="60" cy="2060" r="8" fill="var(--accent)" />
+            </svg>
+        </div>
+
+        <div class="timeline-card tc-right" data-index="1">
+            <div class="timeline-card-inner">
+                <div class="tc-number">01.</div>
+                <h2 class="tc-heading">
+                    <span class="word-wrapper"><span class="about-word">foundation</span></span>
+                    <span class="word-wrapper"><span class="about-word">animation</span></span>
+                    <span class="word-wrapper tc-amp">&amp;</span>
+                    <span class="word-wrapper"><span class="about-word">design</span></span>
+                </h2>
+                <p class="tc-para">
+                    I started my creative journey studying BA Animation alongside graphic design, where I
+                    learned the fundamentals of visual storytelling, composition, and motion. This is where
+                    my interest in combining creativity with purpose began.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-card tc-left" data-index="2">
+            <div class="timeline-card-inner">
+                <div class="tc-number">02.</div>
+                <h2 class="tc-heading">
+                    <span class="word-wrapper"><span class="about-word">radical</span></span>
+                    <span class="word-wrapper"><span class="about-word">design</span></span><br>
+                    <span class="word-wrapper"><span class="about-word">graphic</span></span>
+                    <span class="word-wrapper"><span class="about-word">designer</span></span>
+                </h2>
+                <p class="tc-para">
+                    I stepped into the industry as a graphic designer at Radical Design, working on
+                    real-world projects and learning how to translate ideas into clean, effective visuals.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-card tc-right" data-index="3">
+            <div class="timeline-card-inner">
+                <div class="tc-number">03.</div>
+                <h2 class="tc-heading">
+                    <span class="word-wrapper"><span class="about-word">eka</span></span>
+                    <span class="word-wrapper"><span class="about-word">brandscapes</span></span><br>
+                    <span class="word-wrapper"><span class="about-word">multimedia</span></span>
+                    <span class="word-wrapper"><span class="about-word">head</span></span>
+                </h2>
+                <p class="tc-para">
+                    At Eka Brandscapes, I took on a bigger role as Multimedia Head, leading creative outputs
+                    across different formats and learning how to manage both design and direction.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-card tc-left" data-index="4">
+            <div class="timeline-card-inner">
+                <div class="tc-number">04.</div>
+                <h2 class="tc-heading">
+                    <span class="word-wrapper"><span class="about-word">branding</span></span>
+                    <span class="word-wrapper"><span class="about-word">&amp;</span></span><br>
+                    <span class="word-wrapper"><span class="about-word">identity</span></span>
+                </h2>
+                <p class="tc-para">
+                    I then moved into freelance work, focusing on branding and visual identity. This phase
+                    helped me develop my own style while working closely with different clients and ideas.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-card tc-right" data-index="5">
+            <div class="timeline-card-inner">
+                <div class="tc-number">05.</div>
+                <h2 class="tc-heading">
+                    <span class="word-wrapper"><span class="about-word">next</span></span>
+                    <span class="word-wrapper"><span class="about-word">chapter</span></span><br>
+                    <span class="word-wrapper"><span class="about-word">web</span></span>
+                    <span class="word-wrapper"><span class="about-word">design</span></span>
+                </h2>
+                <p class="tc-para">
+                    Now I'm moving forward to pursue an MA in Web Design at the University of Greenwich,
+                    expanding my skills into digital experience, interaction, and modern web storytelling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- shared footer -->
+    <footer class="site-footer">
+        <div class="footer-card">
+            <div class="footer-inner">
+                <span class="footer-kicker">Open for new projects · 2026</span>
+                <h2 class="footer-heading">Let's build a site your visitors
+                    actually <span class="handwritten">remember.</span></h2>
+                <p class="footer-lead">I help brands and founders turn ideas into premium,
+                    conversion-ready websites — UI/UX, web design and brand identity, crafted end to end.</p>
+                <div class="footer-actions">
+                    <a href="contact.html" class="footer-mail">
+                        Start a project
+                        <span class="arrow">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="mailto:madebyeap@gmail.com" class="footer-ghost">madebyeap@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-base">
+                <nav class="footer-nav">
+                    <a href="../index.html">Home</a>
+                    <a href="work.html">Works</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="https://www.behance.net/stalinceapn" target="_blank">Behance ↗</a>
+                </nav>
+                <div class="footer-meta">
+                    <a href="#" class="to-top">Back to top
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </a>
+                    <span>© 2026 — London</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../nav.js"></script>
+    <script src="about.js"></script>
+</body>
+
+</html>
