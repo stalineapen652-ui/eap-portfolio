@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eap!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.cdnfonts.com/css/sage" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- phone-shell keeps the card centred + phone-sized on all screen sizes -->
+  <div class="phone-shell">
+
+    <!-- ── WHITE CARD ── -->
+    <main class="container">
+      <h1 class="visually-hidden">Eap! Canvas and Artwork</h1>
+
+      <section class="artwork-section" aria-label="Main Artwork">
+        <div class="image-stack">
+          <!-- Desktop specific image -->
+          <img id="main-image-desktop" src="assets/logo/Eap_Art.webp" alt="Eap Art Desktop" class="desktop-image" />
+
+          <!-- Mobile specific image (using the original main-image id to keep drawing logic intact if it relies on it, or just a new class) -->
+          <img id="main-image" src="assets/logo/Eap_Art_Mobile.webp" alt="Eap Art Mobile" class="mobile-image" />
+        </div>
+      </section>
+
+      <!-- Drawing Canvas -->
+      <canvas id="drawingCanvas" aria-label="Drawing Canvas"></canvas>
+
+      <!-- Brush Button -->
+      <button class="brush-button" id="brushButton" aria-label="Toggle drawing controls" aria-expanded="false" aria-controls="drawingControls">
+        🖌️
+      </button>
+
+      <!-- Drawing Controls -->
+      <div class="drawing-controls" id="drawingControls" role="region" aria-label="Drawing Tools">
+        <div class="control-group">
+          <label id="colorsLabel">Colors</label>
+          <div class="color-picker" role="group" aria-labelledby="colorsLabel">
+            <button type="button" class="color-option active" data-color="#000000" style="background:#000000;" aria-label="Black color" aria-pressed="true"></button>
+            <button type="button" class="color-option" data-color="#e74c3c" style="background:#e74c3c;" aria-label="Red color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#3498db" style="background:#3498db;" aria-label="Blue color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#2ecc71" style="background:#2ecc71;" aria-label="Green color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#f39c12" style="background:#f39c12;" aria-label="Orange color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#9b59b6" style="background:#9b59b6;" aria-label="Purple color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#ffffff" style="background:#ffffff;border:2px solid #ddd;" aria-label="White color" aria-pressed="false"></button>
+            <button type="button" class="color-option" data-color="#ff69b4" style="background:#ff69b4;" aria-label="Pink color" aria-pressed="false"></button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="brushSize">Brush Size</label>
+          <div class="brush-size-control">
+            <input type="range" id="brushSize" min="1" max="50" value="5" aria-label="Brush size from 1 to 50">
+            <span class="size-display" id="sizeDisplay">5px</span>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="control-btn eraser-btn" id="eraserBtn">🧹 Eraser</button>
+          <button class="control-btn clear-btn" id="clearCanvas">🗑️ Clear All</button>
+          <button class="control-btn save-btn" id="saveDrawing">💾 Save</button>
+        </div>
+      </div>
+
+    </main>
+    <!-- ── end .container ── -->
+
+    <!-- Bottom buttons -->
+    <nav class="bottom-buttons" aria-label="Bottom navigation">
+      <a href="assets/module/index.html" class="bottom-btn modules-btn">
+        <span class="btn-label">Modules</span>
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="16" x2="16" y2="8"></line>
+          <polyline points="8 8 16 8 16 16"></polyline>
+        </svg>
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=stalineapen652@gmail.com" target="_blank" rel="noopener noreferrer" class="bottom-btn banana-btn">
+        <span>Send a<br>banana</span>
+      </a>
+    </nav>
+
+  </div>
+  <!-- ── end .phone-shell ── -->
+
+  <script src="script.js"></script>
+  <script src="drawing.js"></script>
+</body>
+
+</html>

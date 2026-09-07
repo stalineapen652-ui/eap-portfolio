@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eap!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/sage" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+   <header class="site-header">
+    <a class="logo" href="index.html">
+        <img src="assets/1x/Logo.png" alt="Logo Icon" class="header-icon"/>
+    </a>
+    <button class="header-icon-btn" id="hamburgerBtn" aria-label="Open menu">
+        <img src="assets/logo/Hamburger_Menu.webp" alt="Menu Icon" class="header-icon"/>
+    </button>
+</header>
+
+    
+    <div id="menuToggle">
+      
+      <nav class="side-menu" id="side-Menu">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="assets/Module/index.html">Modules</a></li>
+    <li><a href="experiments.html">Contact</a></li>
+  </ul>
+</nav>
+
+    </div>
+    
+    <main>
+        <img id="main-image" src="assets/logo/Eap_Art.webp" alt="Centre Image" class="center-image"/>
+        <h2 class="side-warning"><span class="icon">&#9888;</span> send a banana</h2>
+    </main>
+
+    <!-- Drawing Canvas -->
+    <canvas id="drawingCanvas"></canvas>
+
+    <!-- Brush Button -->
+    <button class="brush-button" id="brushButton" aria-label="Toggle drawing">
+        🖌️
+    </button>
+
+    <!-- Drawing Controls -->
+    <div class="drawing-controls" id="drawingControls">
+        <div class="control-group">
+            <label>Colors</label>
+            <div class="color-picker">
+                <div class="color-option active" data-color="#000000" style="background: #000000;"></div>
+                <div class="color-option" data-color="#e74c3c" style="background: #e74c3c;"></div>
+                <div class="color-option" data-color="#3498db" style="background: #3498db;"></div>
+                <div class="color-option" data-color="#2ecc71" style="background: #2ecc71;"></div>
+                <div class="color-option" data-color="#f39c12" style="background: #f39c12;"></div>
+                <div class="color-option" data-color="#9b59b6" style="background: #9b59b6;"></div>
+                <div class="color-option" data-color="#ffffff" style="background: #ffffff; border: 2px solid #ddd;"></div>
+                <div class="color-option" data-color="#ff69b4" style="background: #ff69b4;"></div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Brush Size</label>
+            <div class="brush-size-control">
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span class="size-display" id="sizeDisplay">5px</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="control-btn eraser-btn" id="eraserBtn">🧹 Eraser</button>
+            <button class="control-btn clear-btn" id="clearCanvas">🗑️ Clear All</button>
+            <button class="control-btn save-btn" id="saveDrawing">💾 Save</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="drawing.js"></script>
+</body>
+</html>
