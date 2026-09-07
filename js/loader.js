@@ -9,13 +9,23 @@
      3. removes the overlay when it's done (or skipped).
    ============================================================ */
 (function () {
+  // NOTE: was skipping itself on repeat visits within the same tab
+  // session (sessionStorage) — during active review that reads as
+  // "the loader doesn't show up" on every reload after the first.
+  // Disabled for now; re-enable once the design is signed off (see
+  // ENABLE_ONCE_PER_SESSION below).
+  var ENABLE_ONCE_PER_SESSION = false;
+  var MIN_VISIBLE_MS = 3000; // hard floor — plays at least this long no matter what
+
   var SEEN_KEY = 'eap-loader-seen';
   var loader = document.getElementById('loader');
   if (!loader) return;
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var alreadySeen = false;
-  try { alreadySeen = sessionStorage.getItem(SEEN_KEY) === '1'; } catch (e) { /* privacy mode etc. */ }
+  if (ENABLE_ONCE_PER_SESSION) {
+    try { alreadySeen = sessionStorage.getItem(SEEN_KEY) === '1'; } catch (e) { /* privacy mode etc. */ }
+  }
 
   if (reduceMotion || alreadySeen) {
     loader.hidden = true;
@@ -29,7 +39,7 @@
   var inkFadeStart = inkStart + 0.9 + 0.05;
   var titleStart = inkStart + 0.9 - 0.15;
   var subStart = titleStart + 1.3;
-  var doneAt = subStart + 1.0; // when we auto-dismiss the overlay
+  var doneAt = Math.max(subStart + 1.0, MIN_VISIBLE_MS / 1000); // auto-dismiss time, floored to MIN_VISIBLE_MS
 
   // build the image roll
   var cuts = document.createElement('div');

@@ -163,7 +163,7 @@
 .sec-title em { font-style: italic; font-weight: 300; color: var(--accent); }
 
 /* ───────── SERVICES ───────── */
-.services { background: var(--ink); color: var(--cream); }
+.services { background: var(--paper-2); color: var(--ink); }
 .services .sec-label { color: var(--ink-faint); }
 .services .sec-label::before { background: var(--accent-2); }
 .services .sec-title em { color: var(--accent-2); }
@@ -191,7 +191,7 @@
 .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 26px; }
 .proj {
     position: relative; cursor: pointer; overflow: hidden;
-    border-radius: 16px; background: var(--cream);
+    border-radius: 16px; background: var(--paper-2);
     text-decoration: none; color: var(--ink);
     box-shadow: var(--shadow-sm);
     will-change: transform;
@@ -218,7 +218,7 @@
 }
 
 /* ───────── PROCESS ───────── */
-.process { background: var(--cream); }
+.process { background: var(--paper-2); }
 .steps { margin-top: 70px; border-top: 1.5px solid var(--ink); }
 .step {
     display: grid; grid-template-columns: 120px 1fr 1fr 80px; gap: 40px;

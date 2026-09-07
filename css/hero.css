@@ -14,7 +14,7 @@
   height: 78vh;
   min-height: 520px;
   overflow: hidden;
-  background: var(--ink, #1a1715);
+  background: var(--paper, #1a1715);
 }
 
 .hero-reveal canvas {
@@ -47,7 +47,7 @@
 }
 .hero-reveal .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--accent-2, #f4a261); color: var(--ink, #1a1715);
+  background: var(--accent-2, #f4a261); color: var(--paper, #1a1715);
   font: 700 13px 'Space Grotesk', sans-serif; letter-spacing: .04em;
   padding: 14px 24px; border-radius: 30px; text-decoration: none;
   transition: transform .25s var(--ease-out, ease);

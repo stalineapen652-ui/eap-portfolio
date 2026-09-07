@@ -10,10 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/loader.css">
+    <!-- ?v= cache-busts against the plain python http.server dev setup,
+         which sends no explicit Cache-Control and gets heuristically
+         cached by the browser — bump this when CSS changes aren't
+         showing up. Not needed once this ships behind Vercel/etc. -->
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/home.css?v=2">
+    <link rel="stylesheet" href="css/hero.css?v=2">
+    <link rel="stylesheet" href="css/loader.css?v=2">
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -94,7 +98,7 @@
 
         <div class="hero-content">
             <div class="hero-kicker">WEB &amp; UI DESIGNER — LONDON</div>
-            <h1>Interfaces, illustrated.</h1>
+            <h1>I sketch interfaces that don't sit still.</h1>
             <a href="#work" class="hero-cta">SEE THE WORK <span aria-hidden="true">↓</span></a>
         </div>
     </section>
@@ -139,11 +143,11 @@
                     product surfaces, and the occasional rebellious landing page.</p>
             </div>
             <div class="work-grid">
-                <a href="pages/work.html" class="proj span7 reveal">
-                    <span class="ix">01 — 2025</span>
-                    <div class="thumb"><img src="assets/projects/alf-cycle.webp" alt="Alf Cycle project"></div>
+                <a href="https://kickershoe.com" target="_blank" rel="noopener" class="proj span7 reveal">
+                    <span class="ix">01 — 2026</span>
+                    <div class="thumb"><img src="assets/projects/kickershoe.webp" alt="KICKERSHOE — motion comic universe"></div>
                     <div class="proj-meta">
-                        <h4>Alf Cycle</h4><span class="tag">Brand · Web · 2025</span>
+                        <h4>Kickershoe</h4><span class="tag">Motion comic · Brand · Web · 2026 ↗</span>
                     </div>
                 </a>
                 <a href="pages/work.html" class="proj span5 reveal">
@@ -160,11 +164,11 @@
                         <h4>Rasam Kitchen</h4><span class="tag">Web · F&amp;B · 2024</span>
                     </div>
                 </a>
-                <a href="https://kickershoe.com" target="_blank" rel="noopener" class="proj span7 reveal">
-                    <span class="ix">04 — 2026</span>
-                    <div class="thumb"><img src="assets/projects/kickershoe.webp" alt="KICKERSHOE — motion comic universe"></div>
+                <a href="pages/work.html" class="proj span7 reveal">
+                    <span class="ix">04 — 2025</span>
+                    <div class="thumb"><img src="assets/projects/alf-cycle.webp" alt="Alf Cycle project"></div>
                     <div class="proj-meta">
-                        <h4>Kickershoe</h4><span class="tag">Motion comic · Brand · Web · 2026 ↗</span>
+                        <h4>Alf Cycle</h4><span class="tag">Brand · Web · 2025</span>
                     </div>
                 </a>
                 <a href="pages/work.html" class="proj span12 reveal">
@@ -262,10 +266,10 @@
         </div>
     </footer>
 
-    <script src="js/loader.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/hero-reveal.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/loader.js?v=2"></script>
+    <script src="js/nav.js?v=2"></script>
+    <script src="js/hero-reveal.js?v=2"></script>
+    <script src="js/script.js?v=2"></script>
 </body>
 
 </html>

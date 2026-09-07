@@ -10,7 +10,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--ink, #1a1715);
+  background: var(--paper, #1a1715);
   overflow: hidden;
 }
 #loader[hidden] { display: none; }
