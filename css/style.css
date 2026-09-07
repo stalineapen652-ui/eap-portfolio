@@ -1,8 +1,14 @@
 /* ============================================================
    STUDIO EAPEN — REVISITED  ·  Shared styles
-   Editorial serif + grotesk · warm cream / burnt-orange / plum
+   Unbounded (display) + Instrument Sans (body/UI) · warm cream/
+   burnt-orange/plum accents on a near-black surface. Unbounded has
+   no italic face — everywhere the old Fraunces italic was used as
+   a stylistic flourish (numerals, badges, the pull-quote) has been
+   repinned to lean on weight/color instead, since a synthesized
+   oblique on a geometric display face tends to look broken rather
+   than elegant.
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,500;1,9..144,900&family=Space+Grotesk:wght@400;500;700&family=Caveat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Caveat:wght@600;700&display=swap');
 
 /* ===== SELF-HOSTED FONTS (kept as fallbacks) ===== */
 @font-face {
@@ -92,8 +98,8 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
     --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
     --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
     --r-card:      22px;
-    --font-display:'Fraunces', serif;
-    --font-body:   'Space Grotesk', sans-serif;
+    --font-display:'Unbounded', sans-serif;
+    --font-body:   'Instrument Sans', sans-serif;
     --font-hand:   'Caveat', cursive;
 }
 

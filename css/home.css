@@ -160,7 +160,7 @@
     font-family: var(--font-display); font-weight: 900;
     font-size: clamp(44px, 7.5vw, 110px); line-height: 0.9; letter-spacing: -0.04em; max-width: 1100px;
 }
-.sec-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.sec-title em { font-style: normal; font-weight: 300; color: var(--accent); }
 
 /* ───────── SERVICES ───────── */
 .services { background: var(--paper-2); color: var(--ink); }
@@ -178,7 +178,7 @@
     position: relative; overflow: hidden; cursor: default; transition: background .4s;
 }
 .svc:hover { background: #221c18; }
-.svc .num { font-family: var(--font-display); font-style: italic; font-weight: 300; color: var(--accent-2); font-size: 16px; margin-bottom: 56px; display: block; }
+.svc .num { font-family: var(--font-display); font-style: normal; font-weight: 300; color: var(--accent-2); font-size: 16px; margin-bottom: 56px; display: block; }
 .svc h3 { font-family: var(--font-display); font-weight: 900; font-size: 30px; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1; }
 .svc p { color: var(--ink-faint); font-size: 14px; line-height: 1.6; }
 .svc .pl { position: absolute; top: 30px; right: 30px; font-size: 24px; color: var(--accent-2); transition: transform .4s; }
@@ -205,7 +205,7 @@
 .proj .ix {
     position: absolute; top: 16px; left: 16px;
     background: rgba(26,23,21,0.85); color: var(--cream);
-    font-family: var(--font-display); font-style: italic; font-size: 13px;
+    font-family: var(--font-display); font-style: normal; font-weight: 500; font-size: 13px;
     padding: 6px 12px; border-radius: 99px; z-index: 2; backdrop-filter: blur(6px);
 }
 .proj.span7 { grid-column: span 7; }
@@ -226,7 +226,7 @@
     transition: padding .4s;
 }
 .step:hover { padding-left: 14px; }
-.step .stnum { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 48px; color: var(--accent); }
+.step .stnum { font-family: var(--font-display); font-style: normal; font-weight: 300; font-size: 48px; color: var(--accent); }
 .step h3 { font-family: var(--font-display); font-weight: 900; font-size: 40px; letter-spacing: -0.03em; line-height: 1; }
 .step p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; max-width: 380px; }
 .step .step-arr { justify-self: end; font-size: 32px; transition: transform .4s, color .4s; }
@@ -245,7 +245,7 @@
     font-family: var(--font-display); font-size: 240px; color: var(--accent); opacity: 0.18; line-height: 1;
 }
 .quote blockquote {
-    font-family: var(--font-display); font-weight: 500; font-style: italic;
+    font-family: var(--font-display); font-weight: 400; font-style: normal;
     font-size: clamp(26px, 4.4vw, 56px); line-height: 1.15; letter-spacing: -0.02em;
     max-width: 1100px; margin: 0 auto; position: relative;
 }
