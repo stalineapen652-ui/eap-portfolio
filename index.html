@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/loader.css">
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -76,50 +77,25 @@
         </nav>
     </header>
 
-    <!-- ════════ HERO (PLACEHOLDER — being redesigned, see mockup) ════════ -->
-    <section class="hero" id="top">
-        <div class="hero-illu-bg">
-            <img src="images/eap%20drawing.png" alt="Illustration of Stalin Eapen at his design desk">
-        </div>
-        <div class="hero-scrim" aria-hidden="true"></div>
+    <!-- ════════ HERO — water-reveal (approved direction A) ════════
+         Short on purpose: straight into #work within one scroll.
+         Canvas does the cursor water-reveal (js/hero-reveal.js); the
+         <img> right after it is the no-JS / no-hover / reduced-motion
+         fallback and is what search engines/screen readers see. -->
+    <section class="hero-reveal" id="top">
+        <canvas id="heroCanvas" data-src="assets/hero/hero-bg.webp" aria-hidden="true"></canvas>
+        <img class="hero-fallback-img" src="assets/hero/hero-bg.webp"
+             alt="The KICKERSHOE mantis boot, floating above jungle foliage">
+        <div class="scrim" aria-hidden="true"></div>
+        <!-- no hero-specific nav here on purpose — the site's existing
+             auto-revealing <header class="main-header"> above already
+             covers navigation on load/hover/scroll, over every section
+             including this one; a second nav here would just duplicate it. -->
 
-        <div class="hero-grid wrap">
-            <div class="kicker reveal"><span class="dot"></span>Web designer · Brand Designer · Illustration</div>
-            <h1>
-                <div class="row reveal"><span>Websites</span> <em>that</em></div>
-                <div class="row reveal"><span class="strike">actually</span> <span>sell.</span></div>
-                <div class="row reveal hero-tagline">Designed by hand. Built to convert.</div>
-            </h1>
-
-            <div class="hero-copy">
-                <p class="reveal">I'm Stalin — an independent UI &amp; web designer based in London. I help founders
-                    and studios launch <strong>trendy, premium websites</strong> that turn first-time visitors into
-                    lifelong clients.</p>
-
-                <div class="hero-cta reveal">
-                    <span class="scribble">↘ let's make something</span>
-                    <a href="pages/contact.html" class="btn-primary">Book a call <span class="arr">→</span></a>
-                    <a href="#work" class="btn-primary ghost">See the work <span class="arr">↓</span></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-skills" aria-label="Skills">
-            <div class="skills-row">
-                <span class="skill"><i></i>ui/ux</span>
-                <span class="skill"><i></i>motion</span>
-                <span class="skill"><i></i>Illustrator</span>
-                <span class="skill"><i></i>Ai</span>
-                <span class="skill"><i></i>animation</span>
-                <span class="skill"><i></i>graphic design</span>
-                <span class="skill"><i></i>branding</span>
-                <span class="skill"><i></i>visual identity</span>
-                <span class="skill"><i></i>brandbook</span>
-                <span class="skill"><i></i>Logo Design</span>
-                <span class="skill"><i></i>SEO</span>
-                <span class="skill"><i></i>vibe coding</span>
-            </div>
-            <a class="skills-scroll" href="#services" aria-label="Scroll to services">SCROLL <span class="ring"></span></a>
+        <div class="hero-content">
+            <div class="hero-kicker">WEB &amp; UI DESIGNER — LONDON</div>
+            <h1>Interfaces, illustrated.</h1>
+            <a href="#work" class="hero-cta">SEE THE WORK <span aria-hidden="true">↓</span></a>
         </div>
     </section>
 
@@ -288,6 +264,7 @@
 
     <script src="js/loader.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/hero-reveal.js"></script>
     <script src="js/script.js"></script>
 </body>
 
