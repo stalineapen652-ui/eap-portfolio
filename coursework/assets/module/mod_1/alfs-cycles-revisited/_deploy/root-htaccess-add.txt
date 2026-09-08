@@ -1,0 +1,14 @@
+# ════════════════════════════════════════════════════════════════════════
+#  Alf's Cycles short alias
+#  /alfs/  →  /assets/module/mod_4/assets/alfs-cycles/
+#  (Paste at the TOP of /public_html/.htaccess)
+# ════════════════════════════════════════════════════════════════════════
+
+RewriteEngine On
+
+# Bare /alfs and /alfs/ both load the home page
+RewriteRule ^alfs$         /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+RewriteRule ^alfs/$        /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+
+# Everything under /alfs/* is served from the deep folder
+RewriteRule ^alfs/(.+)$    /assets/module/mod_4/assets/alfs-cycles/$1         [L]

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert bike repairs and servicing at Alf's Cycles Keswick. Fast turnaround, fair prices, quality work.">
+    <title>Repairs & Servicing | Alf's Cycles</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anybody+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="../Assets/styles.css"> -->
+    <link rel="stylesheet" href="../pages/css/repairStyles.css">
+</head>
+<body class="repair-page">
+    
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="../index.html" aria-label="Alf's Cycles Home">
+                <img src="../Assets/Icons/logo.png" alt="Alf's Cycles logo">
+            </a>
+            
+            <ul>
+                <li><a href="./products.html">BIKES</a></li>
+                <li><a href="./story.html">STORY</a></li>
+                <li><a href="./repair.html">REPAIR</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            
+            <button aria-label="Toggle menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <a href="#account" aria-label="User Account">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- Page Hero -->
+        <section>
+            <article>
+                <h1>REPAIRS &<br>SERVICING</h1>
+                <figure>
+                    <img src="../Assets/SVG/alf_doing_repair.svg" alt="Illustrated cyclist on bike">
+                </figure>
+            </article>
+        </section>
+        
+        <!-- Service Packages -->
+        <section>
+            <article>
+                <!-- Full Service -->
+                <section>
+                    <h2>FULL SERVICE</h2>
+                    <p>(includes deep clean)</p>
+                    <strong>£55</strong>
+                </section>
+                
+                <!-- Premium Service -->
+                <section>
+                    <h2>PREMIUM SERVICE</h2>
+                    <p>(high-end bikes, full overhaul)</p>
+                    <strong>£75</strong>
+                </section>
+                
+                <!-- Basic Service -->
+                <section>
+                    <h2>BASIC SERVICE</h2>
+                    <p>(high-end bikes, full overhaul)</p>
+                    <strong>£25</strong>
+                </section>
+            </article>
+            
+            <p>Get your bike back on the road fast with our expert technicians and premium parts. We handle most repairs in under 48 hours, and we’ll always call you first if any extra work is needed, so there are no surprises only smooth, reliable rides.</p>
+        </section>
+        
+        <!-- Common Repairs -->
+        <section>
+            <h2>COMMON REPAIRS</h2>
+            
+            <article>
+                <section>
+                    <h3>Puncture Repair</h3>
+                    <strong>£10</strong>
+                </section>
+                
+                <section>
+                    <h3>Brake Adjustment</h3>
+                    <strong>£10</strong>
+                </section>
+                
+                <section>
+                    <h3>Gear Tuning</h3>
+                    <strong>£10</strong>
+                </section>
+                
+                <section>
+                    <h3>Wheel Truing</h3>
+                    <strong>£10</strong>
+                </section>
+                
+                <section>
+                    <h3>Chain Replacement</h3>
+                    <strong>£10</strong>
+                </section>
+            </article>
+        </section>
+        
+        <!-- Emergency Repairs -->
+        <section>
+            <h2>EMERGENCY REPAIRS</h2>
+            <p>Broken chain mid-ride or bike trouble out of nowhere? Swing by during our opening hours and our friendly mechanics will work quickly to get you rolling again, often on the spot. We’ll assess the issue, explain what needs fixing, and do everything we can right away so you can spend less time waiting and more time enjoying the ride.</p>
+        </section>
+        
+        <!-- Winter Special -->
+        <section>
+            <article>
+                <h2>10%</h2>
+                <section>
+                    <h3>WINTER SERVICE<br>SPECIAL</h3>
+                    <p>Book your bike in during October-February and get 10% off full services. Beat the spring rush!</p>
+                </section>
+            </article>
+        </section>
+        
+        
+    <!-- Footer -->
+    <footer>
+        <article>
+            <section>
+                <h2>Talk to us</h2>
+                <p>FAMILY-RUN SINCE 1987.</p>
+                <p><a href="https://www.instagram.com/alfscycles" target="_blank" rel="noopener">@ ALFCYCLES</a></p>
+            </section>
+            
+            <section>
+                <nav aria-label="Footer Navigation">
+                    <ul>
+                        <li><a href="./story.html">ABOUT</a></li>
+                        <li><a href="./products.html">PRODUCTS</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+                
+                <address>
+                    <strong>ADDRESS</strong>
+                    47 Market Street<br>
+                    Keswick, Cumbria<br>
+                    CA12 5BT<br>
+                    Tel: 017687 72345
+                </address>
+            </section>
+        </article>
+        
+        <small>&copy; 2026 Alf's Cycles | Keswick's Local Bike Shop Since 1987</small>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('header nav ul');
+            menu.classList.toggle('active');
+        }
+        
+        document.querySelectorAll('header nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.querySelector('header nav ul');
+                menu.classList.remove('active');
+            });
+        });
+
+        // Hide/Show Header on Scroll
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+let scrollTimeout;
+
+window.addEventListener('scroll', function() {
+    // Clear previous timeout
+    clearTimeout(scrollTimeout);
+    
+    // Add a small delay to make it smoother
+    scrollTimeout = setTimeout(function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scrolling down & past 100px
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, 10);
+});
+    </script>
+    
+</body>
+</html>

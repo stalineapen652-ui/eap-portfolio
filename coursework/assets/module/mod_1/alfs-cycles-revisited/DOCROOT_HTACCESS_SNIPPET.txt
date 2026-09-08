@@ -1,0 +1,13 @@
+Add the marked block to public_html/.htaccess (your document-root .htaccess,
+the one that contains the /alfs/* rewrite rules). Keep the rewrite rules you
+already have — just add the ErrorDocument line ABOVE them.
+
+# === ADD THIS LINE ===
+ErrorDocument 404 /alfs/404.php
+# === END ADD ===
+
+# Your existing rules below — order matters: ErrorDocument must come first.
+RewriteEngine On
+RewriteRule ^alfs$         /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+RewriteRule ^alfs/$        /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+RewriteRule ^alfs/(.+)$    /assets/module/mod_4/assets/alfs-cycles/$1         [L]

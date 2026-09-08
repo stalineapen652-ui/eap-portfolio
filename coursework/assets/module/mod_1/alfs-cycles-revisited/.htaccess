@@ -1,0 +1,36 @@
+# Alf's Cycles — deep-folder .htaccess
+# Path: /home/stalineapen/public_html/assets/module/mod_4/assets/alfs-cycles/.htaccess
+
+# Custom error pages — both 403 (directory-listing blocked, forbidden path) and
+# 404 (file not found) route to 404.php. The PHP file then calls
+# http_response_code(404), so the browser sees a 404 even when Apache
+# originally generated a 403.
+ErrorDocument 404 /assets/module/mod_4/assets/alfs-cycles/404.php
+ErrorDocument 403 /assets/module/mod_4/assets/alfs-cycles/404.php
+
+# Reject /alfs/pages/contact.php/extra and /alfs/index.php/nope etc.
+# Without this, Apache hands the request to PHP with the trailing segment as
+# PATH_INFO and the real .php file serves a 200 OK.
+AcceptPathInfo Off
+
+DirectoryIndex index.php index.html
+Options -Indexes
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType text/css               "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>

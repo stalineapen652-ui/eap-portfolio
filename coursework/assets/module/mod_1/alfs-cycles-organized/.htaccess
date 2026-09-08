@@ -1,0 +1,52 @@
+# Alf's Cycles - Apache config (document-root .htaccess)
+# Site URL: https://stalineapen.uk/alfs/
+# Actual files: /assets/module/mod_4/assets/alfs-cycles/
+
+# Custom 404. The internal subrequest goes through the /alfs/ rewrites below,
+# which map it to the real 404.php in the deep folder.
+ErrorDocument 404 /alfs/404.php
+
+# Default landing
+DirectoryIndex index.php index.html
+
+# Prevent directory listing
+Options -Indexes
+
+# Disable MultiViews — otherwise Apache content-negotiates a "close match"
+# instead of returning 404, suppressing the custom error page.
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Legacy .html -> .php redirects (must run BEFORE the /alfs/* rewrite,
+    # otherwise the URL gets mapped to the deep folder and never matches here)
+    RewriteRule ^alfs/index\.html$       /alfs/index.php       [R=301,L]
+    RewriteRule ^alfs/pages/(.+)\.html$  /alfs/pages/$1.php    [R=301,L]
+
+    # Bare /alfs and /alfs/ both load the home page
+    RewriteRule ^alfs$         /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+    RewriteRule ^alfs/$        /assets/module/mod_4/assets/alfs-cycles/index.php  [L]
+
+    # Everything under /alfs/* is served from the deep folder
+    RewriteRule ^alfs/(.+)$    /assets/module/mod_4/assets/alfs-cycles/$1         [L]
+</IfModule>
+
+# Long-cache static assets (improves PageSpeed)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType text/css               "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>

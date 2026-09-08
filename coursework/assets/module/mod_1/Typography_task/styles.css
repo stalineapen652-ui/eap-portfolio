@@ -1,0 +1,142 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   <3 thanks, Eric :-)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	background: #333;
+	font-family: Krub, Helvetica Neue, Helvetica, Calirbi, Arial, sans-serif;
+	font-size: 1.1em;
+	line-height: 1.6;
+	color: rgba(0,0,0,.8);	
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	/* border-A: collapse; */
+	border-spacing: 0;
+}
+
+/* -----My Files--------- */
+
+
+
+main {
+	max-width: 700px;
+	margin: 0 auto;
+	padding-bottom: 1em;
+	background: #fff;
+
+}
+h1 {
+	font-family: Georgia, Times New Roman, Garamond, New York, MS Serif, serif;
+	font-size: 3em;
+	line-height: 1.1;
+	font-weight: 200;
+	margin: 1em 0;
+	padding: .5em 5%;
+	color: #000;
+	background: #999;
+	border-top: 12px solid #ccc;
+}
+p {
+	margin: 0 0 1.2em 0;
+	padding: .5em 5%;
+}
+main b {
+	display: block;
+	background: #333;
+	font-size: 1.4em;
+	font-weight: 500;
+	color: #ccc;
+	margin: 1em 0;
+	padding: .5em;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+}
+blockquote em {
+	font-weight: 700;
+}
+
+a:link, a:visited {
+	display: inline-block;
+	padding: 1px;
+	color: #ccc;
+}
+a:hover, a:active, a:focus-visible {
+	color: #fff;
+}
+
+footer {
+
+	border-top: 2px solid #ccc;
+}
+footer p {
+	font-size: .8em;
+	margin: .36em 0;
+	padding: 0 5%;
+	color: #ccc;
+}
+i
+{
+	font-style: italic;
+}
+
+
+@media (min-width: 380px) {
+	main b {
+		margin: 1em -7%;
+		padding: .5em 7%;
+	}
+}
+
+@media (min-width: 940px) {
+	main b {
+		margin: 1em -20% 0 -20%;
+		padding: .5em 5%;
+		font-size: 1.6em;
+	}
+	footer p {
+		max-width: 720px;
+		margin: 1em auto .25em auto;
+		text-align: center;
+	}
+	footer p:last-of-type {
+		margin-top: 0;
+	}
+}

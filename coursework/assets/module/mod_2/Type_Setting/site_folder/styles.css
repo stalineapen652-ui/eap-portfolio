@@ -1,0 +1,292 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*------ My-Styles------- */
+@font-face {
+    font-family: 'Lyon';
+    src: url('../work_Folder/Fonts/lyon-regular/LyonText-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lyon';
+    src: url('../work_Folder/Fonts/LyonText-RegularItalic/LyonText-RegularItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Pitch';
+    src: url('../work_Folder/Fonts/Pitch-Regular/Pitch-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Body */
+body {
+    font-family: 'Lyon', Georgia, serif;
+    background: #F5EFE7;
+    color: #6B4423;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    max-width: 1000px;
+    width: 100%;
+    padding: 40px;
+}
+
+/* Header */
+header {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+header a {
+    background: #8B5A3C;
+    color: #F5EFE7;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: 'Pitch', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+header a:hover {
+    background: #6B4423;
+}
+
+/* Hero Section */
+section {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: .8;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+h1 em {
+    font-style: italic;
+    font-size: 0.95em;
+    letter-spacing: -7px;
+}
+
+h1 span {
+    font-size: 1.2em;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+section > p {
+    font-family: 'Lyon', Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+aside {
+    position: absolute;
+    right: 0;
+    top: 80%;
+    transform: translateY(-50%);
+    max-width: 280px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    border-top: 2px solid #6B4423;
+    padding-top: 10px;
+}
+
+aside em {
+    font-style: italic;
+}
+
+/* Article/Chapters Section */
+article {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 40px;
+    padding-top: 40px;
+}
+
+article > a {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 1px solid #D4C4B0;
+    transition: background 0.3s;
+}
+
+article > a:last-child {
+    border-right: none;
+}
+
+article > a:hover {
+    background: rgba(139, 90, 60, 0.05);
+}
+
+strong {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    display: block;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1;
+    border-bottom: 1px solid #6B4423;
+    padding-bottom: 15px;
+}
+
+h2 em {
+    font-style: italic;
+    font-size: 0.85em;
+}
+
+article p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    border-top: 2px solid #6B4423;
+    padding-top: 20px;
+}
+
+footer p {
+    font-size: 0.85rem;
+}
+
+footer em {
+    font-style: italic;
+}
+/* animation */
+h1 em {
+    font-style: italic;
+    /* font-size: 0.65em; */
+    animation: italicPulse 3s ease-in-out infinite;
+    font-variation-settings: 'slnt' -15; /* if using variable font */
+}
+
+@keyframes italicPulse {
+    0%, 100% {
+        font-style: italic;
+    }
+    50% {
+        font-style: normal;
+    }
+}
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    aside {
+        position: static;
+        transform: none;
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    article {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    article > a {
+        border-right: none;
+        border-bottom: 1px solid #D4C4B0;
+        padding-bottom: 30px;
+    }
+
+    article > a:last-child {
+        border-bottom: none;
+    }
+
+    strong {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
