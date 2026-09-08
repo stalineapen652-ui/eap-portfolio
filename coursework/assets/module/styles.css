@@ -141,13 +141,10 @@ table {
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: 'Sage Grotesk';
-    src: url('./fonts/SageGrotesk.woff2') format('woff2'),
-        url('./fonts/SageGrotesk.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+/* Font: Unbounded — same display face as the main portfolio's headings,
+   loaded via Google Fonts in each page's <head>. Was self-hosted 'Sage
+   Grotesk' (the @font-face + local .woff files this used to point to
+   have been removed as dead weight). */
 
 /* Remove default link styling */
 a {
@@ -164,7 +161,7 @@ a:focus {
 }
 
 body {
-    font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+    font-family: 'Unbounded', sans-serif;
     background: #181818;
     min-height: 100vh;
     display: flex;
@@ -252,7 +249,7 @@ body {
     margin: 0;
     margin-bottom: 15vh;
     color: #fff;
-    font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+    font-family: 'Unbounded', sans-serif;
     overflow-wrap: break-word;
 }
 
@@ -263,7 +260,7 @@ body {
     padding-bottom: 14px;
     margin-bottom: 8px;
     color: #fff;
-    font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+    font-family: 'Unbounded', sans-serif;
     overflow-wrap: break-word;
 }
 
@@ -271,7 +268,7 @@ body {
     font-size: 1.2rem;
     line-height: 1.6;
     color: #fff;
-    font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+    font-family: 'Unbounded', sans-serif;
     overflow-wrap: break-word;
     position: relative;
     z-index: 1;

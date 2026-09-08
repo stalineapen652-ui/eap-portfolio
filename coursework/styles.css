@@ -132,14 +132,10 @@ table {
   border-spacing: 0;
 }
 
-/* -------  custom fonts  ------- */
-@font-face {
-  font-family: 'Sage Grotesk';
-  src: url('fonts/SageGrotesk.woff2') format('woff2'),
-    url('fonts/SageGrotesk.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+/* Font: Unbounded — same display face as the main portfolio's headings,
+   loaded via Google Fonts in each page's <head>. Was self-hosted 'Sage
+   Grotesk' (the @font-face + local .woff files this used to point to
+   have been removed as dead weight). */
 
 /* ========== GLOBAL ========== */
 * {
@@ -147,7 +143,7 @@ table {
 }
 
 body {
-  font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+  font-family: 'Unbounded', sans-serif;
   background: #111111;
   margin: 0;
   min-height: 100vh;
@@ -254,7 +250,7 @@ main {
   padding: 14px 22px;
   display: flex;
   align-items: center;
-  font-family: 'Sage Grotesk', 'Courier New', monospace, Arial, sans-serif;
+  font-family: 'Unbounded', sans-serif;
   color: #111;
   border: none;
   cursor: pointer;
