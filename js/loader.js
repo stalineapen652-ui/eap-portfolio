@@ -111,6 +111,54 @@
   }
   loader.appendChild(langRoll);
 
+  // Equalize every language to the same rendered width, single line,
+  // same centered position — 8 different scripts across 9 different
+  // fonts naturally run at wildly different widths-per-character at a
+  // shared font-size (that's what the old static clamp() gave: some
+  // scripts flashed by tiny, others wrapped to two lines or overflowed).
+  // Once fonts are actually loaded, measure each string's real
+  // single-line rendered width in its own font — a *clone* of the
+  // actual span (same class, so it inherits the exact same font/
+  // weight/letter-spacing the real one will render with; only
+  // repositioned off-screen and given a fixed reference font-size),
+  // not canvas measureText, which just sums per-character advance
+  // widths and doesn't apply complex-script shaping (Malayalam/Tamil
+  // conjuncts, Arabic joining) — that measured meaningfully narrower
+  // than what actually renders, letting those scripts overflow anyway.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      var REF_PX = 100; // arbitrary fixed size to measure at, then scale from
+      var MIN_PX = 30, MAX_PX = 210;
+      var target = Math.min(window.innerWidth * 0.86, 1150);
+      var spans = langRoll.querySelectorAll('.langcut');
+      for (var k = 0; k < spans.length; k++) {
+        var span = spans[k];
+        var clone = span.cloneNode(true);
+        clone.style.position = 'fixed';
+        clone.style.inset = 'auto';
+        clone.style.top = '-9999px';
+        clone.style.left = '-9999px';
+        clone.style.padding = '0';
+        clone.style.width = 'auto';
+        clone.style.opacity = '1';
+        clone.style.fontSize = REF_PX + 'px';
+        // appended inside #loader, not document.body — the CSS this
+        // relies on (display:flex, white-space:nowrap, the per-language
+        // font-family) is all written as "#loader .langcut"/"#loader
+        // .lang-*", so a clone living outside #loader wouldn't match
+        // any of those rules and would silently measure in whatever
+        // the browser's block-level fallback font happens to be.
+        loader.appendChild(clone);
+        var naturalWidth = clone.getBoundingClientRect().width;
+        clone.remove();
+        if (!naturalWidth) continue;
+        var size = REF_PX * (target / naturalWidth);
+        size = Math.max(MIN_PX, Math.min(MAX_PX, size));
+        span.style.fontSize = size + 'px';
+      }
+    });
+  }
+
   var ink = document.createElement('div');
   ink.className = 'ink';
   ink.style.animationDelay = inkStart + 's, ' + inkFadeStart + 's';

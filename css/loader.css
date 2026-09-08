@@ -58,13 +58,14 @@
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 0 6vw;
-  /* flex items default to a min-width based on their longest unbreakable
-     run — for scripts like Japanese, where the browser doesn't find a
-     break point, that let the text overflow past the padding (visible
-     bleeding off both edges on narrow screens). overflow-wrap:anywhere
-     is what actually fixes it: it's specifically defined to factor into
-     that minimum-size calculation, so the flex item can shrink to fit. */
-  overflow-wrap: anywhere;
+  /* Single line, always — js/loader.js measures each string's natural
+     width in its own font (via canvas measureText, once fonts are
+     ready) and sets an inline font-size that scales it to a shared
+     target width, so every language occupies the same footprint and
+     the same centered position regardless of how wide that script's
+     letterforms naturally run. The clamp() below is only the pre-JS/
+     no-JS fallback — the inline size js/loader.js sets always wins. */
+  white-space: nowrap;
   opacity: 0;
   /* var(--accent), not --accent-2 — sampled the dominant warm highlight
      across the 33 roll images (mantis/boot amber, fire, leather) and it
@@ -73,9 +74,7 @@
   color: var(--accent, #7f39ef);
   text-transform: uppercase;
   font-size: clamp(40px, 11vw, 148px);
-  /* >1 so a wrapped second line (Malayalam/Tamil/CJK) doesn't crowd or
-     visually touch the line above it at this size */
-  line-height: 1.18;
+  line-height: 1;
   text-shadow: 2px 2px 0 var(--accent-deep, #4f15ac), 0 6px 24px rgba(0, 0, 0, .6);
   animation-name: loaderHardcut;
   animation-timing-function: steps(1, end);
