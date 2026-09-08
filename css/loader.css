@@ -27,7 +27,7 @@
 #loader .cuts img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   opacity: 0;
-  filter: grayscale(.35) contrast(1.2) brightness(.7);
+  filter: grayscale(1) contrast(1.2) brightness(.7);
   animation-name: loaderHardcut;
   animation-timing-function: steps(1, end);
   animation-fill-mode: forwards;
@@ -101,7 +101,7 @@
   100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 #loader .title3d {
-  font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900;
+  font-family: 'Rubik 80s Fade', var(--font-display, 'Unbounded'), sans-serif; font-weight: 400;
   font-size: clamp(62px, 15.5vw, 230px); letter-spacing: -.02em; line-height: .9;
   color: var(--accent, #7f39ef); text-align: center; text-transform: uppercase;
   text-shadow:
