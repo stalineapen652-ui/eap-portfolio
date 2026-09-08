@@ -33,6 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 scrollTrigger: { trigger: el, start: "top 88%" }
             });
         });
+
+        // Every trigger position above was just calculated on DOMContentLoaded,
+        // before images (work-grid thumbnails, hero art) have actually loaded
+        // and settled the page's real height — on a real connection that gap
+        // is enough for every trigger below the fold to land at the wrong
+        // scroll offset, so most of the page (services/work/process) never
+        // gets its "top 88%" moment and stays stuck at opacity:0 forever.
+        // Recalculating once everything has actually loaded fixes it.
+        window.addEventListener("load", () => ScrollTrigger.refresh());
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => ScrollTrigger.refresh());
+        }
     }
 
     /* ---- Footer reveal ---- */

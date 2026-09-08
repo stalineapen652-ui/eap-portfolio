@@ -99,12 +99,16 @@ main { position: relative; z-index: 2; }
     line-height: 0.9;
     letter-spacing: -2px;
     margin-bottom: 1.2rem;
+    /* .project-box is a light card (#fff8ee) — without this it inherits
+       the page's default light --ink text color, reading as barely
+       visible cream-on-cream */
+    color: var(--paper);
 }
 .project-text {
     max-width: 60ch;
     font-size: 0.98rem;
     line-height: 1.8;
-    color: var(--ink-soft);
+    color: rgba(26, 23, 21, 0.75); /* dark, not --ink-soft — same light-card issue as .project-title */
 }
 .project-images { display: flex; flex-direction: column; gap: 1.4rem; }
 .full-width-img {

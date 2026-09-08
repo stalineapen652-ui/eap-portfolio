@@ -121,6 +121,10 @@
     letter-spacing: -1px;
     margin-bottom: 1.2rem;
     text-transform: lowercase;
+    /* .timeline-card-inner is a light card (#fff8ee) — without this it
+       inherits the page's default light --ink text color meant for the
+       dark page background, which reads as barely-visible cream-on-cream */
+    color: var(--paper);
 }
 .word-wrapper { overflow: hidden; display: inline-block; vertical-align: bottom; }
 .about-word { display: inline-block; }
@@ -128,7 +132,7 @@
 .tc-para {
     font-size: 0.95rem;
     line-height: 1.75;
-    color: var(--ink-soft);
+    color: rgba(26, 23, 21, 0.75); /* dark, not --ink-soft — same light-card issue as .tc-heading */
     max-width: 42ch;
 }
 

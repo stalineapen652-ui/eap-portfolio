@@ -32,6 +32,24 @@
     return;
   }
 
+  // Force every loader/hero web font to start downloading right now,
+  // in parallel, instead of waiting on the browser's normal "only fetch
+  // once something needs to paint in it" discovery. Without this, each
+  // one is only requested the instant its first <span> gets appended
+  // below and paints — for the more obscure ones (Lalezar, Black Han
+  // Sans, ZCOOL QingKe HuangYou, Rubik 80s Fade) that request can still
+  // be in flight when its 255ms slot is already over, so the fallback
+  // font flashes for that whole slot instead of the intended one.
+  if (document.fonts && document.fonts.load) {
+    [
+      '700 40px "Baloo Chettan 2"', '700 40px "Baloo Thambi 2"', '700 40px "Teko"',
+      '40px "Lalezar"', '700 40px "Oswald"', '40px "ZCOOL QingKe HuangYou"',
+      '40px "Rampart One"', '40px "Black Han Sans"', '40px "Rubik 80s Fade"'
+    ].forEach(function (spec) {
+      try { document.fonts.load(spec); } catch (e) { /* unsupported browser — swap still falls back fine */ }
+    });
+  }
+
   var ROLL_COUNT = 33;
   var CADENCE = 0.085; // seconds per image cut — the "speed" dial
   var rollEnd = ROLL_COUNT * CADENCE;

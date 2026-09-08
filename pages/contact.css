@@ -84,7 +84,9 @@
     font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    /* sits on .contact-right's light card (#fff8ee) — --ink-soft is
+       tuned for the dark page background and is nearly illegible here */
+    color: rgba(26, 23, 21, 0.6);
     margin-bottom: 1rem;
 }
 .email-btn-pill {

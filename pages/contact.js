@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.ticker.add((t) => lenis.raf(t * 1000));
         gsap.ticker.lagSmoothing(0);
     }
+    // Trigger positions above are calculated on DOMContentLoaded, before
+    // images/fonts have loaded and settled the page's real height —
+    // recalculate once everything has actually loaded (see js/script.js
+    // for the same fix).
+    if (typeof ScrollTrigger !== "undefined") {
+        window.addEventListener("load", () => ScrollTrigger.refresh());
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
 
     /* intro */
     gsap.timeline({ defaults: { ease: "power3.out" } })
