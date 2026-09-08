@@ -44,6 +44,18 @@
   font-family: var(--font-display, 'Unbounded', sans-serif); font-weight: 700; font-style: normal;
   font-size: clamp(32px, 5vw, 62px); line-height: 1.08; letter-spacing: -0.01em; color: var(--cream, #fbf6ec);
   margin: 0 0 20px; max-width: 15ch;
+  /* rotation (js/hero-tagline.js) fades out, swaps text/font, fades back in;
+     kept separate from the .reveal entrance transform GSAP drives on load */
+  transition: opacity .4s ease, transform .4s ease;
+}
+.hero-reveal h1.tagline-out { opacity: 0; transform: translateY(10px); }
+/* two "related" display faces for the alternate taglines — both already
+   loaded as self-hosted fallback fonts in css/style.css, unused until now */
+.hero-reveal h1[data-font="anybody"] { font-family: 'Anybody', sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+.hero-reveal h1[data-font="dela"] { font-family: 'Dela Gothic One', sans-serif; font-weight: 400; letter-spacing: 0; line-height: 1.15; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal h1 { transition: none; }
 }
 .hero-reveal .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;

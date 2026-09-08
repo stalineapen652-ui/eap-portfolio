@@ -23,24 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.set(".reveal", { opacity: 0, y: 40 });
 
         // hero entrance
-        gsap.to(".hero .reveal", { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "power3.out", delay: 0.15 });
-
-        // strike-through on "actually"
-        setTimeout(() => document.querySelectorAll(".hero h1 .strike").forEach(el => el.classList.add("is-struck")), 1400);
+        gsap.to(".hero-reveal .reveal", { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "power3.out", delay: 0.15 });
 
         // section reveals on scroll
         gsap.utils.toArray("section .reveal").forEach(el => {
-            if (el.closest(".hero")) return;
+            if (el.closest(".hero-reveal")) return;
             gsap.to(el, {
                 opacity: 1, y: 0, duration: 1, ease: "power3.out",
                 scrollTrigger: { trigger: el, start: "top 88%" }
             });
-        });
-
-        // parallax on the hero illustration (container — img runs its own scale anim)
-        gsap.to(".hero-illu-bg", {
-            y: -40, ease: "none",
-            scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
         });
     }
 

@@ -15,6 +15,11 @@
          style.css) covers every Latin-script slot, including the final
          reveal, which used to be set in Bebas Neue. -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@700&family=Baloo+Thambi+2:wght@700&family=Teko:wght@700&family=Lalezar&family=Oswald:wght@700&family=ZCOOL+QingKe+HuangYou&family=Rampart+One&family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <!-- Hero-only: the two extra display faces the rotating tagline swaps
+         through (js/hero-tagline.js) — see the note in css/style.css on
+         why these aren't the local @font-face declarations of the same
+         names further down that file. -->
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800&family=Dela+Gothic+One&display=swap" rel="stylesheet">
     <!-- ?v= cache-busts against the plain python http.server dev setup,
          which sends no explicit Cache-Control and gets heuristically
          cached by the browser — bump this when CSS changes aren't
@@ -92,7 +97,13 @@
          <img> right after it is the no-JS / no-hover / reduced-motion
          fallback and is what search engines/screen readers see. -->
     <section class="hero-reveal" id="top">
-        <canvas id="heroCanvas" data-src="assets/hero/hero-bg.webp" aria-hidden="true"></canvas>
+        <!-- Placeholder background: cycles through the loader's roll images
+             (assets/loader/roll-01..33.webp) with a slow crossfade every
+             few seconds, until the new hero design/photography lands — see
+             js/hero-reveal.js. data-src stays the static poster used by the
+             no-hover/reduced-motion fallback below and by search engines. -->
+        <canvas id="heroCanvas" data-src-pattern="assets/loader/roll-{n}.webp" data-src-count="33"
+            aria-hidden="true"></canvas>
         <img class="hero-fallback-img" src="assets/hero/hero-bg.webp"
              alt="The KICKERSHOE mantis boot, floating above jungle foliage">
         <div class="scrim" aria-hidden="true"></div>
@@ -102,9 +113,11 @@
              including this one; a second nav here would just duplicate it. -->
 
         <div class="hero-content">
-            <div class="hero-kicker">WEB &amp; UI DESIGNER — LONDON</div>
-            <h1>I sketch interfaces that don't sit still.</h1>
-            <a href="#work" class="hero-cta">SEE THE WORK <span aria-hidden="true">↓</span></a>
+            <div class="hero-kicker reveal">WEB &amp; UI DESIGNER — LONDON</div>
+            <!-- js/hero-tagline.js cycles the text + font of this h1 through
+                 TAGLINES below; the markup only needs to hold the first one. -->
+            <h1 class="reveal" id="heroTagline">I sketch interfaces that don't sit still.</h1>
+            <a href="#work" class="hero-cta reveal">SEE THE WORK <span aria-hidden="true">↓</span></a>
         </div>
     </section>
 
@@ -274,6 +287,7 @@
     <script src="js/loader.js?v=3"></script>
     <script src="js/nav.js?v=3"></script>
     <script src="js/hero-reveal.js?v=3"></script>
+    <script src="js/hero-tagline.js?v=1"></script>
     <script src="js/script.js?v=3"></script>
 </body>
 

@@ -18,27 +18,14 @@
     font-style: normal;
     font-display: swap;
 }
-@font-face {
-    font-family: 'Anybody';
-    src: url('fonts/Anybody/Anybody-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Anybody';
-    src: url('fonts/Anybody/Anybody-Italic-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Dela Gothic One';
-    src: url('fonts/Dela_Gothic_One/DelaGothicOne-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
+/* 'Anybody' and 'Dela Gothic One' — used by the hero's rotating tagline
+   (js/hero-tagline.js) — are loaded from Google Fonts instead (see the
+   <link> in index.html): the local .ttf files these @font-face blocks
+   pointed at aren't actually present in the repo (404 on every page
+   load). Outfit and Urban Calligraphy below have the same problem —
+   their files are missing too — but nothing currently renders text in
+   either, so it's a silent, harmless gap rather than a live 404; out
+   of scope here since this pass only touches the fonts it uses. */
 @font-face {
     font-family: 'Urban Calligraphy';
     src: url('fonts/el_font_urban_calligraphy/Urban Calligraphy.ttf') format('truetype');
