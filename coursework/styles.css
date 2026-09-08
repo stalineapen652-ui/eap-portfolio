@@ -260,7 +260,9 @@ main {
   cursor: pointer;
   outline: none;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .bottom-btn:hover {
@@ -389,7 +391,7 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  transition: all 0.3s ease;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 1001;
 }
 
@@ -475,7 +477,7 @@ main {
   border-radius: 50%;
   cursor: pointer;
   border: 3px solid transparent;
-  transition: all 0.3s;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .color-option:hover {
@@ -540,7 +542,7 @@ main {
   cursor: pointer;
   font-size: 13px;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -610,7 +612,7 @@ main {
     flex-direction: column;
     gap: 14px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     text-align: left;
 }
 
@@ -678,7 +680,7 @@ aside {
     border: none;
     cursor: pointer;
     padding: 8px;
-    transition: opacity 0.2s;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     align-self: center;
     flex-shrink: 0;
 }
@@ -701,7 +703,7 @@ aside {
     cursor: pointer;
     font-family: inherit;
     padding: 8px;
-    transition: opacity 0.2s;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     text-align: left;
     width: 100%;
     display: block;
@@ -726,7 +728,7 @@ aside {
     font-family: inherit;
     color: #111;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .module-btn:hover {
