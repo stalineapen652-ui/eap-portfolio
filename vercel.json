@@ -1,7 +1,44 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/alfs",
+      "destination": "/alfs/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_1/alfs-cycles-pr",
+      "destination": "/coursework/assets/module/mod_1/alfs-cycles-pr/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_1/Typography_task",
+      "destination": "/coursework/assets/module/mod_1/Typography_task/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_1/How_Type_Works",
+      "destination": "/coursework/assets/module/mod_1/How_Type_Works/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_1/Assets/3_Designed_obj/Menu",
+      "destination": "/coursework/assets/module/mod_1/Assets/3_Designed_obj/Menu/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_1/Designers code of ethics",
+      "destination": "/coursework/assets/module/mod_1/Designers code of ethics/",
+      "permanent": false
+    },
+    {
+      "source": "/coursework/assets/module/mod_2/Type_Setting/site_folder",
+      "destination": "/coursework/assets/module/mod_2/Type_Setting/site_folder/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/wp/:path*",
