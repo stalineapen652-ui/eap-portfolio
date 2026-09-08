@@ -1,11 +1,12 @@
 /* ============================================================
    HERO — rotating tagline
    Cycles the hero <h1> through a few short taglines, each set in a
-   different vintage display face — Alfa Slab One (--font-display) for
-   the original line, then Bevan and Rye (see css/hero.css) for the two
-   variations. Fades out/up between swaps with a plain CSS transition
-   (independent of the GSAP entrance reveal, which has already finished
-   by the time this starts). Skipped entirely under
+   different "related" display face already loaded on the page (see
+   the @font-face block in css/style.css) — Unbounded for the
+   original line, then Anybody and Dela Gothic One for the two
+   variations. Fades out/up between swaps with a plain CSS
+   transition (independent of the GSAP entrance reveal, which has
+   already finished by the time this starts). Skipped entirely under
    prefers-reduced-motion — the h1 just keeps the first tagline.
    ============================================================ */
 (function () {
@@ -15,8 +16,8 @@
 
   var TAGLINES = [
     { text: "I sketch interfaces that don't sit still.", font: 'display' },
-    { text: 'I build brands that move.', font: 'bevan' },
-    { text: 'I craft motion worth watching.', font: 'rye' }
+    { text: 'I build brands that move.', font: 'anybody' },
+    { text: 'I craft motion worth watching.', font: 'dela' }
   ];
 
   var HOLD_MS = 4200;   // how long each tagline stays up
