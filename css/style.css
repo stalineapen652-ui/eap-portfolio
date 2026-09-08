@@ -68,18 +68,28 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
     --ink:         #f3ece0;   /* primary text — warm off-white */
     --ink-soft:    #c9bdae;   /* secondary/muted text */
     --ink-faint:   #746a5e;   /* hairlines, faint labels */
-    --accent:      #e85a2a;   /* burnt orange */
-    --accent-deep: #c2491e;   /* pressed orange */
-    --accent-2:    #f4a261;   /* warm sand */
-    --peach:       #f4a261;   /* soft glow */
+    /* Premium red — replaces the original burnt-orange family. Same
+       hue held constant across all three (352°) rather than drifting
+       toward orange the way the old accent/accent-2 pair did, so the
+       palette reads as one deliberate red rather than a gradient back
+       toward orange. Contrast-checked: accent vs white text 5.77:1,
+       accent-2 vs paper text 4.91:1 (both clear AA), accent-deep vs
+       its actual pairings (white/cream text on it) are AAA (~8-9:1). */
+    --accent:      #c81930;   /* premium red */
+    --accent-deep: #8c1827;   /* pressed red */
+    --accent-2:    #ef4c43;   /* bright red tint */
+    --peach:       #ef4c43;   /* soft glow (alias of accent-2) */
     --plum:        #7a2e3b;   /* deep plum */
     --sage:        #7a2e3b;   /* legacy alias → plum */
     --red-pop:     #7a2e3b;   /* legacy alias → plum */
-    /* the floating header/nav keeps its own fixed light chrome
+    /* the floating header/nav keeps its own fixed dark chrome
        regardless of page theme — it's a bar that "reads over any
-       section", so it can't participate in the swap above */
-    --chrome-bg:   #fff8ee;
-    --chrome-ink:  #1a1715;
+       section", so it can't participate in the swap above. Solid
+       black backing (was a light cream bar) with the accent red
+       carrying the nav icons/logo, so contrast never depends on
+       what's showing through behind it. */
+    --chrome-bg:   #1a1715;
+    --chrome-ink:  #f3ece0;
     --shadow:      28px 28px 60px rgba(0, 0, 0, 0.45);
     --shadow-sm:   10px 12px 30px rgba(0, 0, 0, 0.35);
     --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
@@ -101,8 +111,8 @@ body {
     position: relative;
     /* layered warm atmosphere instead of a flat fill */
     background-image:
-        radial-gradient(120% 80% at 80% -10%, rgba(244, 162, 97, 0.40) 0%, transparent 55%),
-        radial-gradient(90% 60% at -10% 0%, rgba(232, 90, 42, 0.08) 0%, transparent 50%);
+        radial-gradient(120% 80% at 80% -10%, rgba(239, 76, 67, 0.40) 0%, transparent 55%),
+        radial-gradient(90% 60% at -10% 0%, rgba(200, 25, 48, 0.08) 0%, transparent 50%);
     background-attachment: fixed;
 }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; }
@@ -143,19 +153,30 @@ html.lenis, html.lenis body { height: auto; }
     transition: transform 0.5s var(--ease-out), opacity 0.4s ease;
 }
 .main-header.is-visible { opacity: 1; transform: translateY(0); }
-/* soft backing so the revealed bar reads over any section */
+/* solid black backing so the logo/icons read the same red-on-black
+   regardless of what's scrolling behind — a translucent cream bar
+   over a photo (the old treatment) let contrast swing with whatever
+   image happened to be underneath. */
 .main-header.is-visible::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(243, 233, 218, 0.92) 0%, rgba(243, 233, 218, 0) 100%);
+    background: linear-gradient(180deg, rgba(10, 8, 7, 0.94) 0%, rgba(10, 8, 7, 0) 100%);
     z-index: -1;
     pointer-events: none;
 }
-.logo-link img {
+/* Logo as a solid-color mask instead of a tinted raster: background-
+   color drives the fill (var(--accent), so it moves with the palette
+   automatically), and the shape comes from assets/logo.svg — crisp at
+   any size, exact color, no CSS filter chain to re-tune by hand. */
+.logo-link .logo-mark {
+    display: block;
     height: 38px;
-    /* warm ink the logo so it reads on cream */
-    filter: brightness(0) saturate(100%) invert(13%) sepia(18%) saturate(680%) hue-rotate(355deg) brightness(95%);
+    aspect-ratio: 146 / 64;
+    background-color: var(--accent);
+    -webkit-mask: url('/assets/logo.svg') no-repeat center / contain;
+    mask: url('/assets/logo.svg') no-repeat center / contain;
+    transition: background-color 0.3s;
 }
 .hamburger {
     display: none;
@@ -176,7 +197,7 @@ html.lenis, html.lenis body { height: auto; }
     align-items: center;
 }
 /* creative icon-chip nav links — this bar is always on its own
-   fixed light chrome (see --chrome-*), independent of page theme */
+   fixed dark chrome (see --chrome-*), independent of page theme */
 .nav-link {
     display: inline-flex;
     align-items: center;
@@ -193,19 +214,31 @@ html.lenis, html.lenis body { height: auto; }
     transition: border-color 0.3s, background 0.3s, color 0.3s,
         transform 0.4s var(--ease-spring);
 }
+/* icons themselves are the red accent — the chip background/border
+   and its label text stay on the neutral chrome tokens (they already
+   flip to a light-on-dark pair above), so red reads as a deliberate
+   highlight rather than the whole bar going red */
 .nav-ico {
     display: grid;
     place-items: center;
     width: 31px; height: 31px;
     border-radius: 50%;
     background: var(--chrome-bg);
-    border: 1.5px solid var(--chrome-ink);
-    color: var(--chrome-ink);
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
     flex-shrink: 0;
     transition: background 0.3s, color 0.3s, border-color 0.3s,
         transform 0.45s var(--ease-spring);
 }
 .nav-ico svg { width: 16px; height: 16px; }
+/* KICKERSHOE's own nav icon artwork (assets/icons/*.svg, ported as-is),
+   applied as CSS masks so background-color:currentColor keeps them
+   riding the exact same color rules .nav-ico already had (red normally,
+   white on hover) without needing per-state SVG fill duplication. */
+.nav-ico .glyph { display: block; width: 16px; height: 16px; background-color: currentColor; }
+.nav-ico .glyph-about   { -webkit-mask: url('/assets/icons/about.svg') no-repeat center / contain; mask: url('/assets/icons/about.svg') no-repeat center / contain; }
+.nav-ico .glyph-works   { -webkit-mask: url('/assets/icons/works.svg') no-repeat center / contain; mask: url('/assets/icons/works.svg') no-repeat center / contain; }
+.nav-ico .glyph-contact { -webkit-mask: url('/assets/icons/contact.svg') no-repeat center / contain; mask: url('/assets/icons/contact.svg') no-repeat center / contain; }
 .nav-link:hover {
     border-color: var(--chrome-ink);
     background: rgba(255, 248, 238, 0.7);
@@ -224,8 +257,8 @@ html.lenis, html.lenis body { height: auto; }
     place-items: center;
     width: 39px; height: 39px;
     border-radius: 50%;
-    border: 1.5px solid var(--chrome-ink);
-    color: var(--chrome-ink);
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
     margin-left: 0.2rem;
     transition: background 0.3s, color 0.3s, transform 0.4s var(--ease-spring);
 }
@@ -281,7 +314,7 @@ html.lenis, html.lenis body { height: auto; }
     width: 95vw; height: 95vw;
     left: 50%; top: -56%;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(232, 132, 58, 0.26) 0%, transparent 56%);
+    background: radial-gradient(circle, rgba(239, 76, 67, 0.26) 0%, transparent 56%);
     pointer-events: none;
 }
 .footer-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
@@ -328,10 +361,10 @@ html.lenis, html.lenis body { height: auto; }
     color: #fff;
     text-decoration: none;
     font-weight: 700; font-size: 1.05rem;
-    box-shadow: 0 10px 30px rgba(232, 132, 58, 0.35);
+    box-shadow: 0 10px 30px rgba(239, 76, 67, 0.35);
     transition: transform 0.4s var(--ease-spring), background 0.3s, box-shadow 0.3s;
 }
-.footer-mail:hover { transform: translateY(-3px); background: var(--accent-deep); box-shadow: 0 16px 40px rgba(232, 132, 58, 0.45); }
+.footer-mail:hover { transform: translateY(-3px); background: var(--accent-deep); box-shadow: 0 16px 40px rgba(239, 76, 67, 0.45); }
 .footer-mail .arrow {
     display: grid; place-items: center;
     width: 34px; height: 34px; border-radius: 50%;

@@ -53,11 +53,11 @@
      across the 33 roll images (mantis/boot amber, fire, leather) and it
      lands much closer to the site's burnt-orange --accent than to the
      paler --accent-2 sand that was here before. */
-  color: var(--accent, #e85a2a);
+  color: var(--accent, #c81930);
   text-transform: uppercase;
   font-size: clamp(32px, 9vw, 120px);
   line-height: 1;
-  text-shadow: 2px 2px 0 var(--accent-deep, #c2491e), 0 6px 24px rgba(0, 0, 0, .6);
+  text-shadow: 2px 2px 0 var(--accent-deep, #8c1827), 0 6px 24px rgba(0, 0, 0, .6);
   animation-name: loaderHardcut;
   animation-timing-function: steps(1, end);
   animation-fill-mode: forwards;
@@ -84,8 +84,8 @@
   animation-duration: .9s, .7s;
 }
 @keyframes loaderInkGrow {
-  0%   { width: 20px; height: 20px; margin: -10px 0 0 -10px; opacity: 1; box-shadow: 0 0 40px 10px rgba(232,90,42,.5); }
-  55%  { width: 2200px; height: 2200px; margin: -1100px 0 0 -1100px; opacity: 1; box-shadow: 0 0 0 0 rgba(232,90,42,0); }
+  0%   { width: 20px; height: 20px; margin: -10px 0 0 -10px; opacity: 1; box-shadow: 0 0 40px 10px rgba(200,25,48,.5); }
+  55%  { width: 2200px; height: 2200px; margin: -1100px 0 0 -1100px; opacity: 1; box-shadow: 0 0 0 0 rgba(200,25,48,0); }
   100% { width: 2600px; height: 2600px; margin: -1300px 0 0 -1300px; opacity: 1; }
 }
 @keyframes loaderInkFadeOut { from { opacity: 1; } to { opacity: 0; } }
@@ -103,11 +103,11 @@
 #loader .title3d {
   font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900;
   font-size: clamp(52px, 13vw, 190px); letter-spacing: -.02em; line-height: .92;
-  color: var(--accent, #e85a2a); text-align: center; text-transform: uppercase;
+  color: var(--accent, #c81930); text-align: center; text-transform: uppercase;
   text-shadow:
-    1px 1px 0 #c2491e, 2px 2px 0 #b5431b, 3px 3px 0 #a83d18, 4px 4px 0 #9b3715,
-    5px 5px 0 #8e3113, 6px 6px 0 #812b10, 7px 7px 0 #74260e, 8px 8px 0 #67200b,
-    9px 9px 0 #5a1a09, 10px 10px 0 #4d1407, 11px 11px 22px rgba(0,0,0,.65);
+    1px 1px 0 #8c1827, 2px 2px 0 #801523, 3px 3px 0 #74121f, 4px 4px 0 #680f1b,
+    5px 5px 0 #5b0d17, 6px 6px 0 #4f0b14, 7px 7px 0 #420910, 8px 8px 0 #35070d,
+    9px 9px 0 #29050a, 10px 10px 0 #1c0306, 11px 11px 22px rgba(0,0,0,.65);
 }
 #loader .subtitle2 {
   font-family: 'Instrument Sans', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: .35em;

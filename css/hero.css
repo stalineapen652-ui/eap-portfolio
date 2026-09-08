@@ -37,7 +37,7 @@
   position: absolute; left: 0; right: 0; bottom: 8vh; z-index: 2; padding: 0 6vw;
 }
 .hero-reveal .hero-kicker {
-  font: 700 12px 'Instrument Sans', sans-serif; letter-spacing: .3em; color: var(--accent-2, #f4a261);
+  font: 700 12px 'Instrument Sans', sans-serif; letter-spacing: .3em; color: var(--accent-2, #ef4c43);
   margin-bottom: 14px;
 }
 .hero-reveal h1 {
@@ -59,7 +59,7 @@
 }
 .hero-reveal .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--accent-2, #f4a261); color: var(--paper, #1a1715);
+  background: var(--accent-2, #ef4c43); color: var(--paper, #1a1715);
   font: 700 13px 'Instrument Sans', sans-serif; letter-spacing: .04em;
   padding: 14px 24px; border-radius: 30px; text-decoration: none;
   transition: transform .25s var(--ease-out, ease);
