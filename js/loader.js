@@ -35,6 +35,30 @@
   var ROLL_COUNT = 33;
   var CADENCE = 0.085; // seconds per image cut — the "speed" dial
   var rollEnd = ROLL_COUNT * CADENCE;
+
+  // Multilingual name overlay, flashed on top of the image roll — same
+  // hard-cut/zoom motion as the images (reuses loaderHardcut), just on a
+  // slower cadence so each one is readable. "Stalin Eapen" is a proper
+  // name: non-Latin entries are phonetic transliterations, not
+  // translations. Spanish and German share one Latin-script slot since
+  // the name is spelled identically in both. Latin entries are
+  // interleaved among the others rather than clustered at the start.
+  var LANG_ROLL = [
+    { text: 'STALIN EAPEN', lang: 'en', cls: 'lang-latin' },
+    { text: 'സ്റ്റാലിൻ ഈപ്പൻ', lang: 'ml', cls: 'lang-ml' },
+    { text: 'ஸ்டாலின் ஈப்பன்', lang: 'ta', cls: 'lang-ta' },
+    { text: 'STALINE EAPEN', lang: 'fr', cls: 'lang-latin' },
+    { text: 'स्तालिन एपेन', lang: 'hi', cls: 'lang-hi' },
+    { text: 'ستالين إيبن', lang: 'ar', cls: 'lang-ar', rtl: true },
+    { text: 'STALIN EAPEN', lang: 'es', cls: 'lang-latin' },
+    { text: 'Сталин Эапен', lang: 'ru', cls: 'lang-ru' },
+    { text: '斯大林·埃彭', lang: 'zh', cls: 'lang-zh' },
+    { text: 'スターリン・イーペン', lang: 'ja', cls: 'lang-ja' },
+    { text: '스탈린 이펜', lang: 'ko', cls: 'lang-ko' }
+  ];
+  var LANG_SWAP_CUTS = 3; // change language every 3 image-cuts
+  var langInterval = LANG_SWAP_CUTS * CADENCE;
+  var langSlots = Math.floor(ROLL_COUNT / LANG_SWAP_CUTS);
   var inkStart = rollEnd - 0.08;
   var inkFadeStart = inkStart + 0.9 + 0.05;
   var titleStart = inkStart + 0.9 - 0.15;
@@ -53,6 +77,21 @@
     cuts.appendChild(img);
   }
   loader.appendChild(cuts);
+
+  var langRoll = document.createElement('div');
+  langRoll.className = 'lang-roll';
+  for (var j = 0; j < langSlots; j++) {
+    var entry = LANG_ROLL[j % LANG_ROLL.length];
+    var span = document.createElement('span');
+    span.className = 'langcut ' + entry.cls;
+    span.lang = entry.lang;
+    if (entry.rtl) span.dir = 'rtl';
+    span.textContent = entry.text;
+    span.style.animationDuration = langInterval + 's';
+    span.style.animationDelay = (j * langInterval) + 's';
+    langRoll.appendChild(span);
+  }
+  loader.appendChild(langRoll);
 
   var ink = document.createElement('div');
   ink.className = 'ink';

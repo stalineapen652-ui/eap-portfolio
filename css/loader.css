@@ -39,6 +39,35 @@
   100% { opacity: 0; }
 }
 
+/* Multilingual name overlay — sits on top of .cuts (later in the DOM),
+   flashing in the same hard-cut/zoom rhythm as the images themselves
+   (reuses loaderHardcut below), just on a slower per-item cadence set in
+   js/loader.js so each language is actually readable. */
+#loader .lang-roll { position: absolute; inset: 0; pointer-events: none; }
+#loader .langcut {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 0 6vw;
+  opacity: 0;
+  color: var(--accent-2, #f4a261);
+  text-transform: uppercase;
+  font-size: clamp(32px, 9vw, 120px);
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--accent-deep, #c2491e), 0 6px 24px rgba(0, 0, 0, .6);
+  animation-name: loaderHardcut;
+  animation-timing-function: steps(1, end);
+  animation-fill-mode: forwards;
+}
+#loader .lang-latin { font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+#loader .lang-ml    { font-family: 'Baloo Chettan 2', sans-serif; font-weight: 700; }
+#loader .lang-ta    { font-family: 'Baloo Thambi 2', sans-serif; font-weight: 700; }
+#loader .lang-hi    { font-family: 'Teko', sans-serif; font-weight: 700; }
+#loader .lang-ar    { font-family: 'Lalezar', sans-serif; }
+#loader .lang-ru    { font-family: 'Oswald', sans-serif; font-weight: 700; }
+#loader .lang-zh    { font-family: 'ZCOOL QingKe HuangYou', sans-serif; }
+#loader .lang-ja    { font-family: 'Rampart One', sans-serif; }
+#loader .lang-ko    { font-family: 'Black Han Sans', sans-serif; }
+
 #loader .ink {
   position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px;
   border-radius: 50%;
