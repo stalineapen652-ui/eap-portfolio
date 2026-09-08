@@ -69,17 +69,28 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
     --ink:         #f3ece0;   /* primary text — warm off-white */
     --ink-soft:    #c9bdae;   /* secondary/muted text */
     --ink-faint:   #746a5e;   /* hairlines, faint labels */
-    /* Premium red — replaces the original burnt-orange family. Same
-       hue held constant across all three (352°) rather than drifting
-       toward orange the way the old accent/accent-2 pair did, so the
-       palette reads as one deliberate red rather than a gradient back
-       toward orange. Contrast-checked: accent vs white text 5.77:1,
-       accent-2 vs paper text 4.91:1 (both clear AA), accent-deep vs
-       its actual pairings (white/cream text on it) are AAA (~8-9:1). */
-    --accent:      #c81930;   /* premium red */
-    --accent-deep: #8c1827;   /* pressed red */
-    --accent-2:    #ef4c43;   /* bright red tint */
-    --peach:       #ef4c43;   /* soft glow (alias of accent-2) */
+    /* Blue-to-purple — replaces the premium-red family. Sourced from
+       the KICKERSHOE artwork itself: sampled the dominant vivid hues
+       across the 33 loader roll images (night-scene blues cluster
+       ~248°, magic-glow purples ~278°) rather than picking a generic
+       tech-brand blue/purple. --accent/-deep/-2 sit at the midpoint
+       hue (263°) for a single solid color everywhere the family needs
+       one (text, borders, icon fill against black); --accent-grad is
+       the literal two-stop gradient between the sampled blue and
+       purple, used on the bigger surfaces (logo, buttons, icon
+       glyphs, headline text) where a flat color would undersell it.
+       Contrast-checked against every real pairing: accent vs white
+       5.62:1, vs black chrome (icon-on-header) 3.17:1 (UI-component
+       minimum is 3:1), vs the cream footer-card on hover 4.79:1;
+       accent-deep vs white ~10:1; accent-2 vs paper (button text) 6.82:1;
+       both gradient stops vs white text 8.17:1 / 5.75:1. */
+    --accent-grad-from: #3b20e9;   /* sampled blue */
+    --accent-grad-to:   #9a1ce3;   /* sampled purple */
+    --accent-grad:      linear-gradient(135deg, var(--accent-grad-from) 0%, var(--accent-grad-to) 100%);
+    --accent:      #7f39ef;   /* solid blue-violet (blue/purple midpoint) */
+    --accent-deep: #4f15ac;   /* pressed */
+    --accent-2:    #b58bf9;   /* bright tint */
+    --peach:       #b58bf9;   /* soft glow (alias of accent-2) */
     --plum:        #7a2e3b;   /* deep plum */
     --sage:        #7a2e3b;   /* legacy alias → plum */
     --red-pop:     #7a2e3b;   /* legacy alias → plum */
@@ -110,10 +121,11 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     position: relative;
-    /* layered warm atmosphere instead of a flat fill */
+    /* layered atmosphere instead of a flat fill — purple top-right,
+       blue bottom-left, echoing --accent-grad's two stops */
     background-image:
-        radial-gradient(120% 80% at 80% -10%, rgba(239, 76, 67, 0.40) 0%, transparent 55%),
-        radial-gradient(90% 60% at -10% 0%, rgba(200, 25, 48, 0.08) 0%, transparent 50%);
+        radial-gradient(120% 80% at 80% -10%, rgba(154, 28, 227, 0.35) 0%, transparent 55%),
+        radial-gradient(90% 60% at -10% 0%, rgba(59, 32, 233, 0.12) 0%, transparent 50%);
     background-attachment: fixed;
 }
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; }
@@ -167,17 +179,17 @@ html.lenis, html.lenis body { height: auto; }
     pointer-events: none;
 }
 /* Logo as a solid-color mask instead of a tinted raster: background-
-   color drives the fill (var(--accent), so it moves with the palette
-   automatically), and the shape comes from assets/logo.svg — crisp at
-   any size, exact color, no CSS filter chain to re-tune by hand. */
+   color drives the fill (var(--accent-grad), so it moves with the
+   palette automatically), and the shape comes from assets/logo.svg —
+   crisp at any size, exact color, no CSS filter chain to re-tune by
+   hand. */
 .logo-link .logo-mark {
     display: block;
     height: 38px;
     aspect-ratio: 146 / 64;
-    background-color: var(--accent);
+    background: var(--accent-grad);
     -webkit-mask: url('/assets/logo.svg') no-repeat center / contain;
     mask: url('/assets/logo.svg') no-repeat center / contain;
-    transition: background-color 0.3s;
 }
 .hamburger {
     display: none;
@@ -233,10 +245,12 @@ html.lenis, html.lenis body { height: auto; }
 }
 .nav-ico svg { width: 16px; height: 16px; }
 /* KICKERSHOE's own nav icon artwork (assets/icons/*.svg, ported as-is),
-   applied as CSS masks so background-color:currentColor keeps them
-   riding the exact same color rules .nav-ico already had (red normally,
-   white on hover) without needing per-state SVG fill duplication. */
-.nav-ico .glyph { display: block; width: 16px; height: 16px; background-color: currentColor; }
+   applied as CSS masks. Default fill is the actual blue/purple
+   gradient (background:var(--accent-grad) through the mask); on hover
+   the chip fills solid var(--accent) behind it, so the glyph switches
+   to plain white instead — a gradient would disappear into its own
+   solid-color backdrop. */
+.nav-ico .glyph { display: block; width: 16px; height: 16px; background: var(--accent-grad); }
 .nav-ico .glyph-about   { -webkit-mask: url('/assets/icons/about.svg') no-repeat center / contain; mask: url('/assets/icons/about.svg') no-repeat center / contain; }
 .nav-ico .glyph-works   { -webkit-mask: url('/assets/icons/works.svg') no-repeat center / contain; mask: url('/assets/icons/works.svg') no-repeat center / contain; }
 .nav-ico .glyph-contact { -webkit-mask: url('/assets/icons/contact.svg') no-repeat center / contain; mask: url('/assets/icons/contact.svg') no-repeat center / contain; }
@@ -252,6 +266,7 @@ html.lenis, html.lenis body { height: auto; }
     border-color: var(--accent);
     transform: rotate(10deg) scale(1.1);
 }
+.nav-link:hover .nav-ico .glyph { background: #fff; }
 /* behance as a matching circular badge */
 .behance-link {
     display: grid;
@@ -315,7 +330,7 @@ html.lenis, html.lenis body { height: auto; }
     width: 95vw; height: 95vw;
     left: 50%; top: -56%;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(239, 76, 67, 0.26) 0%, transparent 56%);
+    background: radial-gradient(circle, rgba(154, 28, 227, 0.26) 0%, transparent 56%);
     pointer-events: none;
 }
 .footer-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
@@ -358,14 +373,14 @@ html.lenis, html.lenis body { height: auto; }
     display: inline-flex; align-items: center; gap: 0.9rem;
     padding: 1rem 1rem 1rem 1.9rem;
     border-radius: 100px;
-    background: var(--accent);
+    background: var(--accent-grad);
     color: #fff;
     text-decoration: none;
     font-weight: 700; font-size: 1.05rem;
-    box-shadow: 0 10px 30px rgba(239, 76, 67, 0.35);
-    transition: transform 0.4s var(--ease-spring), background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 30px rgba(154, 28, 227, 0.35);
+    transition: transform 0.4s var(--ease-spring), box-shadow 0.3s, filter 0.3s;
 }
-.footer-mail:hover { transform: translateY(-3px); background: var(--accent-deep); box-shadow: 0 16px 40px rgba(239, 76, 67, 0.45); }
+.footer-mail:hover { transform: translateY(-3px); filter: brightness(1.12); box-shadow: 0 16px 40px rgba(154, 28, 227, 0.45); }
 .footer-mail .arrow {
     display: grid; place-items: center;
     width: 34px; height: 34px; border-radius: 50%;

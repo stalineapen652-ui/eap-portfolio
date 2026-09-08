@@ -17,7 +17,7 @@
     width: 70vw; height: 70vw;
     left: 50%; top: 45%;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(239,76,67,0.18) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(59,32,233,0.18) 0%, transparent 60%);
     pointer-events: none;
     animation: glowDrift 14s ease-in-out infinite;
 }
