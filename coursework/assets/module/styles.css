@@ -505,7 +505,10 @@ aside .module-btn {
     }
 
     .featured h2 {
-        font-size: 1.6rem;
+        /* long unbroken words (KICKERSHOE) were overflowing at 1.6rem and
+           getting hard mid-word-broken by overflow-wrap — sized down to
+           actually fit one line at this card's padded width. */
+        font-size: clamp(1.1rem, 6vw, 1.3rem);
     }
 
     .featured p {
@@ -530,6 +533,22 @@ aside .module-btn {
 @media (min-width: 400px) {
     .container {
         height: auto;
+    }
+}
+
+/* Pages with a short aside (just Back/Contact, no extra module-btn links —
+   mod_3, mod_5) were leaving a large empty gap before the nav on mobile:
+   the container's 580px floor plus the grid's "1fr" sidebar rows forced
+   that whitespace even though there wasn't enough content to need it.
+   Let short pages size to their actual content instead. */
+@media (max-width: 720px) {
+    .container {
+        min-height: 0;
+    }
+
+    aside {
+        justify-content: flex-start;
+        gap: 24px;
     }
 }
 
