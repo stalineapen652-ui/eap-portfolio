@@ -2,6 +2,16 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/wp/:path*",
+      "destination": "https://origin.stalineapen.uk/wp/:path*"
+    },
+    {
+      "source": "/alfs/:path*",
+      "destination": "https://origin.stalineapen.uk/alfs/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
