@@ -1,0 +1,236 @@
+/* ===================================
+   STORY/ABOUT PAGE STYLES - FIXED
+   =================================== */
+
+/* About Us Hero Section - IMAGE FIRST (Full Width), HEADING BELOW */
+main > section:nth-of-type(1) {
+    background-color: var(--color-cream);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Image - Full Width at Top */
+main > section:nth-of-type(1) > figure {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem 2rem 3rem;
+    background-color: var(--color-cream);
+}
+
+main > section:nth-of-type(1) > figure > img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
+/* Heading - Below Image, Centered */
+main > section:nth-of-type(1) > h1 {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: var(--color-black);
+    line-height: 0.9;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 2rem 3rem 5rem 3rem;
+    width: 100%;
+}
+
+/* Our Story Section - Dark Background */
+main > section:nth-of-type(2) {
+    background-color: var(--color-dark-gray);
+    padding: 5rem 3rem;
+}
+
+main > section:nth-of-type(2) > h2 {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: var(--color-cream);
+    margin-bottom: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 0.9;
+    text-align: center;
+}
+
+main > section:nth-of-type(2) > article {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: block;
+}
+
+main > section:nth-of-type(2) > article > p {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--color-cream);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+main > section:nth-of-type(2) > article > p:last-child {
+    margin-bottom: 0;
+}
+
+/* What Makes Us Different Section - NO GRAB, NO FLEX, READABLE */
+main > section:nth-of-type(3) {
+    background-color: var(--color-dark-gray);
+    padding: 5rem 3rem 6rem 3rem;
+}
+
+main > section:nth-of-type(3) > h2 {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: var(--color-cream);
+    line-height: 0.9;
+    margin-bottom: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* Section 3 Article - NO FLEX, NO GRAB, BLOCK LAYOUT */
+main > section:nth-of-type(3) > article {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: block; /* NO FLEX! */
+    cursor: default; /* NO GRAB! */
+}
+
+main > section:nth-of-type(3) > article > p {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--color-cream);
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+main > section:nth-of-type(3) > article > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===================================
+   RESPONSIVE - TABLET
+   =================================== */
+
+@media (max-width: 1024px) {
+    main > section:nth-of-type(1) > figure {
+        padding: 3rem 2rem 1.5rem 2rem;
+    }
+    
+    main > section:nth-of-type(1) > figure > img {
+        max-width: 700px;
+    }
+    
+    main > section:nth-of-type(1) > h1 {
+        font-size: 6rem;
+        padding: 1.5rem 2rem 4rem 2rem;
+    }
+    
+    main > section:nth-of-type(2) > h2,
+    main > section:nth-of-type(3) > h2 {
+        font-size: 6rem;
+    }
+    
+    main > section:nth-of-type(2) > article > p,
+    main > section:nth-of-type(3) > article > p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+}
+
+/* ===================================
+   RESPONSIVE - MOBILE (READABLE!)
+   =================================== */
+
+@media (max-width: 768px) {
+    main > section:nth-of-type(1) {
+        padding: 0;
+    }
+    
+    main > section:nth-of-type(1) > figure {
+        padding: 3rem 1.5rem 1.5rem 1.5rem;
+    }
+    
+    main > section:nth-of-type(1) > figure > img {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    main > section:nth-of-type(1) > h1 {
+        font-size: 4.5rem;
+        padding: 1.5rem 1.5rem 3rem 1.5rem;
+    }
+    
+    main > section:nth-of-type(2) {
+        padding: 4rem 1.5rem;
+    }
+    
+    main > section:nth-of-type(2) > h2 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Section 2 - Mobile Readable */
+    main > section:nth-of-type(2) > article {
+        display: block;
+    }
+    
+    main > section:nth-of-type(2) > article > p {
+        font-size: 1.1rem;
+        line-height: 1.9; /* Very readable! */
+        margin-bottom: 2rem;
+    }
+    
+    /* Section 3 - Mobile Readable, NO FLEX, NO GRAB */
+    main > section:nth-of-type(3) {
+        padding: 4rem 1.5rem;
+    }
+    
+    main > section:nth-of-type(3) > h2 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    
+    main > section:nth-of-type(3) > article {
+        display: block; /* Ensure block on mobile */
+        cursor: default; /* Ensure default cursor */
+    }
+    
+    main > section:nth-of-type(3) > article > p {
+        font-size: 1.1rem;
+        line-height: 1.9; /* Very readable! */
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main > section:nth-of-type(1) > figure {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+    
+    main > section:nth-of-type(1) > h1 {
+        font-size: 3.5rem;
+        padding: 1rem 1rem 2.5rem 1rem;
+    }
+    
+    main > section:nth-of-type(2) > h2,
+    main > section:nth-of-type(3) > h2 {
+        font-size: 3rem;
+    }
+    
+    main > section:nth-of-type(2) > article > p,
+    main > section:nth-of-type(3) > article > p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
