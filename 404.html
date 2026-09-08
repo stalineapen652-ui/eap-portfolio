@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found · Stalin Eapen</title>
+    <meta name="description" content="This page doesn't exist. Head back to the portfolio or browse the coursework.">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/404.css?v=1">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <a href="index.html" class="logo-link">
+            <img src="assets/logo.png" alt="Eap! Logo">
+        </a>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+        <nav class="nav-menu">
+            <a href="pages/about.html" class="nav-link">
+                <span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="3.5" />
+                        <path d="M5.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+                    </svg></span>
+                <span class="nav-txt">About</span>
+            </a>
+            <a href="pages/work.html" class="nav-link">
+                <span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" />
+                        <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" />
+                        <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" />
+                        <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" />
+                    </svg></span>
+                <span class="nav-txt">Works</span>
+            </a>
+            <a href="pages/contact.html" class="nav-link">
+                <span class="nav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 3 10.5 13.5" />
+                        <path d="M21 3l-6.5 18-4-8-8-4L21 3z" />
+                    </svg></span>
+                <span class="nav-txt">Contact</span>
+            </a>
+            <a href="https://www.behance.net/stalinceapn" target="_blank" class="behance-link" title="Behance Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-15.144h6.616c2.298 0 5.409.811 5.409 4.461 0 2.815-2.248 3.678-3.694 3.903 1.487.191 4.159 1.507 4.159 4.161 0 3.176-3.375 2.619-6.024 2.619zm-3.466-8.453h2.677c1.768 0 2.813-.535 2.813-2.028 0-1.459-.974-1.871-2.656-1.871h-2.834v3.899zm0 5.641h3.047c2.473 0 3.125-.875 3.125-2.31 0-1.498-1.229-2.13-2.953-2.13h-3.219v4.44z" />
+                </svg>
+            </a>
+        </nav>
+    </header>
+
+    <!-- ════════ 404 ════════
+         Reuses the footer's "pop card" CTA styling (see css/404.css) so
+         it reads as part of the same site rather than a bare error page. -->
+    <main class="not-found">
+        <div class="footer-card not-found-card">
+            <div class="footer-inner">
+                <div class="not-found-num" aria-hidden="true">404</div>
+                <span class="footer-kicker">Page not found</span>
+                <h1 class="footer-heading">This route doesn't exist <span class="handwritten">(yet).</span></h1>
+                <p class="footer-lead">The page you were after got moved, renamed, or never existed in the first
+                    place. Here's where you probably meant to go:</p>
+                <div class="footer-actions">
+                    <a href="index.html" class="footer-mail">
+                        Back to portfolio
+                        <span class="arrow">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="coursework/index.html" class="footer-ghost">View my coursework</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/nav.js?v=3"></script>
+</body>
+
+</html>

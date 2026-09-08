@@ -49,7 +49,11 @@
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 0 6vw;
   opacity: 0;
-  color: var(--accent-2, #f4a261);
+  /* var(--accent), not --accent-2 — sampled the dominant warm highlight
+     across the 33 roll images (mantis/boot amber, fire, leather) and it
+     lands much closer to the site's burnt-orange --accent than to the
+     paler --accent-2 sand that was here before. */
+  color: var(--accent, #e85a2a);
   text-transform: uppercase;
   font-size: clamp(32px, 9vw, 120px);
   line-height: 1;
@@ -99,7 +103,7 @@
 #loader .title3d {
   font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900;
   font-size: clamp(52px, 13vw, 190px); letter-spacing: -.02em; line-height: .92;
-  color: #f4a261; text-align: center; text-transform: uppercase;
+  color: var(--accent, #e85a2a); text-align: center; text-transform: uppercase;
   text-shadow:
     1px 1px 0 #c2491e, 2px 2px 0 #b5431b, 3px 3px 0 #a83d18, 4px 4px 0 #9b3715,
     5px 5px 0 #8e3113, 6px 6px 0 #812b10, 7px 7px 0 #74260e, 8px 8px 0 #67200b,

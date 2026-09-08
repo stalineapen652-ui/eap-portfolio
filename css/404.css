@@ -1,0 +1,28 @@
+/* ============================================================
+   404 — PAGE NOT FOUND
+   Reuses the footer's "pop card" treatment (.footer-card/-kicker/
+   -heading/-lead/-actions/-mail/-ghost, all in css/style.css) for a
+   CTA that already matches the rest of the site — this file only adds
+   the full-height page shell and the big numeral above it.
+   ============================================================ */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.2rem, 5vw, 3rem);
+}
+.not-found-card { max-width: 720px; width: 100%; }
+
+.not-found-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(6rem, 22vw, 13rem);
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  text-shadow:
+    2px 2px 0 var(--accent-deep), 4px 4px 0 var(--accent-deep),
+    6px 6px 16px rgba(26, 23, 21, 0.25);
+  margin-bottom: 0.5rem;
+}
