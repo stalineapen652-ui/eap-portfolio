@@ -10,19 +10,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Loader-only: the non-Latin scripts in the multilingual name overlay
-         and the final name reveal (see js/loader.js) each need an authentic
-         bold/display face for that script — Unbounded (already loaded via
-         style.css) covers every Latin-script slot, including the final
-         reveal, which used to be set in Bebas Neue. -->
+         (see js/loader.js) each need an authentic bold/display face for
+         that script — these are kept as-is through the vintage rebrand,
+         since they're chosen for script coverage, not aesthetics, and
+         genuinely vintage faces barely exist for most of these scripts. -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@700&family=Baloo+Thambi+2:wght@700&family=Teko:wght@700&family=Lalezar&family=Oswald:wght@700&family=ZCOOL+QingKe+HuangYou&family=Rampart+One&family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <!-- Hero-only: the two extra display faces the rotating tagline swaps
-         through (js/hero-tagline.js) — see the note in css/style.css on
-         why these aren't the local @font-face declarations of the same
-         names further down that file. -->
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <!-- Hero-only: the two extra vintage display faces the rotating
+         tagline swaps through (js/hero-tagline.js, css/hero.css). -->
+    <link href="https://fonts.googleapis.com/css2?family=Bevan&family=Rye&display=swap" rel="stylesheet">
     <!-- Loader-only: the big final "STALIN EAPEN" reveal (#loader .title3d
-         in css/loader.css) uses this instead of Unbounded. -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap" rel="stylesheet">
+         in css/loader.css) uses this instead of --font-display. -->
+    <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
     <!-- ?v= cache-busts against the plain python http.server dev setup,
          which sends no explicit Cache-Control and gets heuristically
          cached by the browser — bump this when CSS changes aren't
@@ -278,6 +276,13 @@
     <script src="js/hero-reveal.js?v=4"></script>
     <script src="js/hero-tagline.js?v=2"></script>
     <script src="js/script.js?v=4"></script>
+    <!-- Vercel Web Analytics + Speed Insights — plain-HTML integration
+         (no npm package/build step on this site, so not the React/Next
+         component form): Vercel serves these two endpoints automatically
+         for any project with Analytics/Speed Insights turned on for it
+         in the dashboard; the script does nothing until that's enabled. -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,17 @@
 /* ============================================================
    STUDIO EAPEN — REVISITED  ·  Shared styles
-   Unbounded (display) + Instrument Sans (body/UI) · warm cream/
-   burnt-orange/plum accents on a near-black surface. Unbounded has
-   no italic face — everywhere the old Fraunces italic was used as
-   a stylistic flourish (numerals, badges, the pull-quote) has been
-   repinned to lean on weight/color instead, since a synthesized
-   oblique on a geometric display face tends to look broken rather
-   than elegant.
+   Vintage type system: Alfa Slab One (display — a bold 19th-century
+   wood-type slab, carnival/saloon-poster energy) + Vollkorn (body — a
+   warm old-book serif, chosen specifically because it stays legible
+   at small sizes, unlike most vintage display faces) + Mrs Saint
+   Delafield (the handwritten accent, replacing Caveat's casual script
+   with a more old-world signature one) · warm cream/burnt-orange/plum
+   accents on a near-black surface. Neither Alfa Slab One nor Mrs Saint
+   Delafield ship an italic or a weight range (both are single-weight
+   faces) — any font-weight set against them elsewhere just falls back
+   to their one real weight, which is intentional, not a bug.
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Caveat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Vollkorn:ital,wght@0,400..900;1,400..900&family=Mrs+Saint+Delafield&display=swap');
 
 /* ===== SELF-HOSTED FONTS (kept as fallbacks) ===== */
 @font-face {
@@ -18,15 +21,16 @@
     font-style: normal;
     font-display: swap;
 }
-/* 'Anybody' and 'Dela Gothic One' — used by the hero's rotating tagline
-   (js/hero-tagline.js) — are loaded from Google Fonts instead (see the
-   <link> in index.html) rather than through @font-face blocks like this
-   one: this scaffold's initial commit carried over the font *CSS* from
+/* Outfit and Urban Calligraphy below are self-hosted for real: this
+   scaffold's initial commit carried over the font CSS from
    portfolio/revisited but not the actual .ttf files sitting next to it,
-   so every local @font-face in this block 404'd the moment something
-   tried to render in that family. Outfit and Urban Calligraphy below
-   are fixed the other way — their real files (also from
-   portfolio/revisited/fonts/) are now checked in under css/fonts/. */
+   so both @font-face blocks 404'd the moment something rendered in
+   that family. Their real files (also from portfolio/revisited/fonts/)
+   are now checked in under css/fonts/, fixing that. (The hero's
+   rotating tagline used to lean on two more local @font-face families
+   here the same broken way — Anybody, Dela Gothic One — but it's since
+   moved to vintage faces loaded from Google Fonts instead; see the
+   <link> in index.html and css/hero.css.) */
 @font-face {
     font-family: 'Urban Calligraphy';
     src: url('fonts/el_font_urban_calligraphy/Urban Calligraphy.ttf') format('truetype');
@@ -107,9 +111,9 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
     --ease-spring: cubic-bezier(0.34, 1.36, 0.64, 1);
     --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
     --r-card:      22px;
-    --font-display:'Unbounded', sans-serif;
-    --font-body:   'Instrument Sans', sans-serif;
-    --font-hand:   'Caveat', cursive;
+    --font-display:'Alfa Slab One', sans-serif;
+    --font-body:   'Vollkorn', serif;
+    --font-hand:   'Mrs Saint Delafield', cursive;
 }
 
 /* ===== BASE ===== */

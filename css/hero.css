@@ -1,6 +1,6 @@
 /* ============================================================
    HERO — water-reveal
-   A short (~78vh) hero. The background image is grayscale by
+   Full viewport, edge to edge. The background image is grayscale by
    default; moving the mouse reveals color through it (same
    destination-out canvas technique as the loader's ink-bleed).
    Falls back to a static full-color image on touch devices —
@@ -11,8 +11,9 @@
 
 .hero-reveal {
   position: relative;
-  height: 78vh;
-  min-height: 520px;
+  width: 100vw;
+  height: 100vh;   /* fallback for browsers without dvh support */
+  height: 100dvh;  /* the real viewport, excluding mobile browser chrome that vh includes */
   overflow: hidden;
   background: var(--paper, #1a1715);
 }
@@ -37,11 +38,11 @@
   position: absolute; left: 0; right: 0; bottom: 8vh; z-index: 2; padding: 0 6vw;
 }
 .hero-reveal .hero-kicker {
-  font: 700 12px 'Instrument Sans', sans-serif; letter-spacing: .3em; color: var(--accent-2, #b58bf9);
+  font: 700 12px var(--font-body, 'Vollkorn'), serif; letter-spacing: .3em; color: var(--accent-2, #b58bf9);
   margin-bottom: 14px;
 }
 .hero-reveal h1 {
-  font-family: var(--font-display, 'Unbounded', sans-serif); font-weight: 700; font-style: normal;
+  font-family: var(--font-display, 'Alfa Slab One', sans-serif); font-weight: 700; font-style: normal;
   font-size: clamp(40px, 6.5vw, 86px); line-height: 1.05; letter-spacing: -0.01em; color: var(--cream, #fbf6ec);
   margin: 0 0 20px; max-width: 15ch;
   /* rotation (js/hero-tagline.js) fades out, swaps text/font, fades back in;
@@ -49,10 +50,10 @@
   transition: opacity .4s ease, transform .4s ease;
 }
 .hero-reveal h1.tagline-out { opacity: 0; transform: translateY(10px); }
-/* two "related" display faces for the alternate taglines — both already
-   loaded as self-hosted fallback fonts in css/style.css, unused until now */
-.hero-reveal h1[data-font="anybody"] { font-family: 'Anybody', sans-serif; font-weight: 800; letter-spacing: -0.01em; }
-.hero-reveal h1[data-font="dela"] { font-family: 'Dela Gothic One', sans-serif; font-weight: 400; letter-spacing: 0; line-height: 1.15; }
+/* two more vintage display faces for the alternate taglines — loaded
+   via the <link> in index.html */
+.hero-reveal h1[data-font="bevan"] { font-family: 'Bevan', serif; font-weight: 400; letter-spacing: -0.01em; }
+.hero-reveal h1[data-font="rye"] { font-family: 'Rye', serif; font-weight: 400; letter-spacing: 0; line-height: 1.15; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal h1 { transition: none; }
@@ -60,7 +61,7 @@
 .hero-reveal .hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--accent-2, #b58bf9); color: var(--paper, #1a1715);
-  font: 700 13px 'Instrument Sans', sans-serif; letter-spacing: .04em;
+  font: 700 13px var(--font-body, 'Vollkorn'), serif; letter-spacing: .04em;
   padding: 14px 24px; border-radius: 30px; text-decoration: none;
   transition: transform .25s var(--ease-out, ease);
 }

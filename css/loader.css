@@ -81,7 +81,7 @@
   animation-timing-function: steps(1, end);
   animation-fill-mode: forwards;
 }
-#loader .lang-latin { font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+#loader .lang-latin { font-family: var(--font-display, 'Alfa Slab One'), sans-serif; font-weight: 900; letter-spacing: -0.02em; }
 #loader .lang-ml    { font-family: 'Baloo Chettan 2', sans-serif; font-weight: 700; }
 #loader .lang-ta    { font-family: 'Baloo Thambi 2', sans-serif; font-weight: 700; }
 #loader .lang-hi    { font-family: 'Teko', sans-serif; font-weight: 700; }
@@ -120,7 +120,7 @@
   100% { opacity: 1; transform: scale(1); filter: blur(0); }
 }
 #loader .title3d {
-  font-family: 'Rubik 80s Fade', var(--font-display, 'Unbounded'), sans-serif; font-weight: 400;
+  font-family: 'Frijole', var(--font-display, 'Alfa Slab One'), sans-serif; font-weight: 400;
   font-size: clamp(62px, 15.5vw, 230px); letter-spacing: -.02em; line-height: .9;
   color: var(--accent, #7f39ef); text-align: center; text-transform: uppercase;
   text-shadow:
@@ -129,7 +129,7 @@
     9px 9px 0 #14042d, 10px 10px 0 #0c021c, 11px 11px 22px rgba(0,0,0,.65);
 }
 #loader .subtitle2 {
-  font-family: 'Instrument Sans', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: .35em;
+  font-family: var(--font-body, 'Vollkorn'), serif; font-weight: 600; font-size: 14px; letter-spacing: .35em;
   color: #e3d6c2; margin-top: 18px; opacity: 0;
   animation: loaderFadeUp .6s ease forwards;
 }
@@ -139,7 +139,7 @@
 }
 #loader .skip {
   position: absolute; right: 20px; bottom: 20px;
-  font: 700 11px 'Instrument Sans', sans-serif; letter-spacing: .2em;
+  font: 700 11px var(--font-body, 'Vollkorn'), serif; letter-spacing: .2em;
   color: #e3d6c2; opacity: .55; background: none; border: 1px solid rgba(255,255,255,.25);
   border-radius: 20px; padding: 8px 16px; cursor: pointer;
 }
