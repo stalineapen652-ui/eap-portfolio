@@ -1,7 +1,7 @@
 <?php
 $pageTitle       = "Bikes & Accessories | Alf's Cycles";
 $pageDescription = "Browse classic, kids and vintage bicycles plus accessories from Alf's Cycles in Keswick, Cumbria.";
-$pathPrefix      = '../';
+$pathPrefix      = '/alfs/';
 $currentPage     = 'bikes';
 $canonical       = '/alfs/pages/products.php';
 ?>

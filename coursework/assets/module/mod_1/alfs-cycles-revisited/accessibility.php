@@ -1,7 +1,7 @@
 <?php
 $pageTitle       = "Accessibility Statement | Alf's Cycles";
 $pageDescription = "Alf's Cycles accessibility statement — our commitment to WCAG 2.1 AA, a plain-English guide to web accessibility, and how to get help if you hit a barrier.";
-$pathPrefix      = './';
+$pathPrefix      = '/alfs/';
 $currentPage     = '';
 $canonical       = '/alfs/accessibility.php';
 ?>

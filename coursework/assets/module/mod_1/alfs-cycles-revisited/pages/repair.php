@@ -1,7 +1,7 @@
 <?php
 $pageTitle       = "Repairs & Servicing | Alf's Cycles";
 $pageDescription = "Expert bike repairs and servicing at Alf's Cycles, Keswick. Fast turnaround, fair prices, quality work.";
-$pathPrefix      = '../';
+$pathPrefix      = '/alfs/';
 $currentPage     = 'repair';
 $canonical       = '/alfs/pages/repair.php';
 ?>

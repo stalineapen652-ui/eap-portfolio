@@ -1,7 +1,7 @@
 <?php
 $pageTitle       = "Our Story | Alf's Cycles";
 $pageDescription = "The story of Alf's Cycles - from a small Keswick garage in 1987 to the trusted bike shop it is today.";
-$pathPrefix      = '../';
+$pathPrefix      = '/alfs/';
 $currentPage     = 'story';
 $canonical       = '/alfs/pages/story.php';
 ?>

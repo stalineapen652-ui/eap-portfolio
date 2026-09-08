@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Alf's Cycles | Your Local Cycling Experts Since 1987";
 $pageDescription = "Alf's Cycles - Keswick's trusted bike shop since 1987. Quality bikes, expert repairs and friendly local cycling knowledge.";
-$pathPrefix = './';
+$pathPrefix = '/alfs/';
 $currentPage = 'home';
 $canonical = '/alfs/';
 ?>
@@ -22,7 +22,7 @@ $canonical = '/alfs/';
         <section aria-label="Welcome">
             <article>
                 <figure>
-                    <img src="./assets/icons/alf_doingWheelie_1.webp"
+                    <img src="/alfs/assets/icons/alf_doingWheelie_1.webp"
                         alt="Illustrated cyclist mid-wheelie, the Alf's Cycles mascot" width="540" height="540"
                         loading="eager">
                 </figure>
@@ -41,7 +41,7 @@ $canonical = '/alfs/';
                     </h1>
                     <p>Your cycling experts since 1987</p>
 
-                    <a href="./pages/contact.php" aria-label="Say hello — go to the contact page">
+                    <a href="/alfs/pages/contact.php" aria-label="Say hello — go to the contact page">
                         <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <circle cx="12" cy="12" r="11" fill="#00000f"></circle>
                             <path
@@ -77,8 +77,8 @@ $canonical = '/alfs/';
             <h2>WHAT WE DO&hellip;</h2>
 
             <article>
-                <a href="./pages/products.php" aria-label="Vintage Royal Master Cruiser — browse bikes">
-                    <img src="./assets/images/vintage-cruiser.webp"
+                <a href="/alfs/pages/products.php" aria-label="Vintage Royal Master Cruiser — browse bikes">
+                    <img src="/alfs/assets/images/vintage-cruiser.webp"
                         alt="Restored vintage cruiser bicycle leaning against a wall" width="400" height="500"
                         loading="lazy">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -89,8 +89,8 @@ $canonical = '/alfs/';
                     <span>Bikes for every soul, from first tiny pedals to champion strides.</span>
                 </a>
 
-                <a href="./pages/repair.php" aria-label="Repair services">
-                    <img src="./assets/images/mechanic-repairing-bicycle.webp"
+                <a href="/alfs/pages/repair.php" aria-label="Repair services">
+                    <img src="/alfs/assets/images/mechanic-repairing-bicycle.webp"
                         alt="Mechanic adjusting the drivetrain on a bike at our workshop" width="400" height="500"
                         loading="lazy">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -102,8 +102,8 @@ $canonical = '/alfs/';
                         living history.</span>
                 </a>
 
-                <a href="./pages/story.php" aria-label="Read Alf's stories">
-                    <img src="./assets/images/beautiful-fluffy-domestic-cat-sitting-by-window-with-bars-brick-wall.webp"
+                <a href="/alfs/pages/story.php" aria-label="Read Alf's stories">
+                    <img src="/alfs/assets/images/beautiful-fluffy-domestic-cat-sitting-by-window-with-bars-brick-wall.webp"
                         alt="Alf the shop cat sitting in a sunlit window — the inspiration for Alf's Cycles" width="400"
                         height="500" loading="lazy">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -114,8 +114,8 @@ $canonical = '/alfs/';
                     <span>The shop, the cat, the rides — strictly personal.</span>
                 </a>
 
-                <a href="./pages/products.php" aria-label="Accessories">
-                    <img src="./assets/images/metal-lock-bike-wheel.webp"
+                <a href="/alfs/pages/products.php" aria-label="Accessories">
+                    <img src="/alfs/assets/images/metal-lock-bike-wheel.webp"
                         alt="Heavy-duty bike lock fastened around a wheel and frame" width="400" height="500"
                         loading="lazy">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -126,8 +126,8 @@ $canonical = '/alfs/';
                     <span>Helmets, locks, lights and more.</span>
                 </a>
 
-                <a href="./pages/repair.php" aria-label="Servicing">
-                    <img src="./assets/images/expirienced-young-master-is-repairing-customer-s-bicycle-workplace-1.webp"
+                <a href="/alfs/pages/repair.php" aria-label="Servicing">
+                    <img src="/alfs/assets/images/expirienced-young-master-is-repairing-customer-s-bicycle-workplace-1.webp"
                         alt="Experienced mechanic tuning a bicycle on a workshop stand" width="400" height="500"
                         loading="lazy">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -144,21 +144,21 @@ $canonical = '/alfs/';
         <section aria-label="Why choose Alf's">
             <article>
                 <figure>
-                    <img src="./assets/svg/alf_doingWheelie.svg" alt="Illustrated cyclist popping a wheelie" width="450"
+                    <img src="/alfs/assets/svg/alf_doingWheelie.svg" alt="Illustrated cyclist popping a wheelie" width="450"
                         height="450" loading="lazy">
                 </figure>
                 <section>
                     <h2>WHY<br>CHOOSE<br>ALF'S?</h2>
                     <p>Family-run since 1987. Alf started in a small garage and built this shop through honest service
                         and fair prices. Today, we're still fixing punctures, tuning gears, and helping you find the
-                        perfect ride. <a href="./pages/story.php">Read more&hellip;</a></p>
+                        perfect ride. <a href="/alfs/pages/story.php">Read more&hellip;</a></p>
                 </section>
             </article>
         </section>
 
         <!-- DECORATIVE -->
         <section aria-hidden="true">
-            <img src="./assets/svg/thumbnail.webp" alt="" width="1400" height="500" loading="lazy">
+            <img src="/alfs/assets/svg/thumbnail.webp" alt="" width="1400" height="500" loading="lazy">
         </section>
 
     </main>

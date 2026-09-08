@@ -1,7 +1,7 @@
 <?php
 $pageTitle       = "Contact | Alf's Cycles";
 $pageDescription = "Get in touch with Alf's Cycles - Keswick's trusted bike shop. Visit us, call, or send a message.";
-$pathPrefix      = '../';
+$pathPrefix      = '/alfs/';
 $currentPage     = 'contact';
 $canonical       = '/alfs/pages/contact.php';
 
