@@ -38,21 +38,27 @@
   85%  { opacity: 1; }
   100% { opacity: 0; }
 }
-/* A few of the 33 roll images are landscape screenshots/mockups, not
-   wide illustrated scenes — object-fit:cover on a tall phone screen
-   crops those down to an arbitrary, often unrecognizable strip (a
-   fragment of UI chrome, half a headline). Below ~480px, show the
-   whole frame instead (letterboxed on the loader's own dark bg) so
-   nothing reads as broken, at the cost of some empty margin on the
-   illustrated frames that would otherwise crop fine either way. */
-@media (max-width: 480px) {
-  #loader .cuts img { object-fit: contain; }
+/* Full-bleed cover on every screen size, mobile included — a request to
+   always fill the whole viewport, even though it means the handful of
+   landscape screenshots/mockups in the 33-image roll crop to a strip on
+   a tall phone screen instead of showing the whole frame. */
+
+/* Dark scrim sitting between .cuts (images) and .lang-roll (text) —
+   darkens the whole frame for the entire image/language phase so every
+   language's name reads clearly no matter how bright the photo under it
+   is, instead of only some languages happening to land on a dark photo. */
+#loader .lang-scrim {
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, .5);
+  pointer-events: none;
 }
 
-/* Multilingual name overlay — sits on top of .cuts (later in the DOM),
-   flashing in the same hard-cut/zoom rhythm as the images themselves
-   (reuses loaderHardcut below), just on a slower per-item cadence set in
-   js/loader.js so each language is actually readable. */
+/* Multilingual name overlay — sits on top of .lang-scrim (later in the
+   DOM), flashing in its own hard-cut/zoom rhythm (loaderLangCut below —
+   a variant of the images' loaderHardcut with a small guaranteed-blank
+   gap at each end of its slot, see that keyframe's comment), on a slower
+   per-item cadence set in js/loader.js so each language is actually
+   readable. */
 #loader .lang-roll { position: absolute; inset: 0; pointer-events: none; }
 #loader .langcut {
   position: absolute; inset: 0;
@@ -76,9 +82,27 @@
   font-size: clamp(40px, 11vw, 148px);
   line-height: 1;
   text-shadow: 2px 2px 0 var(--accent-deep, #4f15ac), 0 6px 24px rgba(0, 0, 0, .6);
-  animation-name: loaderHardcut;
+  animation-name: loaderLangCut;
   animation-timing-function: steps(1, end);
   animation-fill-mode: forwards;
+}
+/* Same hard-cut idea as loaderHardcut (images), but with an explicit
+   blank gap built into both ends of the slot (4% in, 8% out — roughly
+   10ms/20ms at the 0.255s-per-language cadence) instead of one
+   language's fade-out landing on the exact same instant the next one's
+   fade-in starts. Back-to-back spans sharing that exact boundary is what
+   was reading as two names briefly "stacking" on top of each other —
+   real on any device, but far more visible on lower-power/mobile screens
+   where a dropped animation frame stretches that instant into something
+   actually visible. The gap is short enough that it just reads as part
+   of the hard-cut style, not a fade. */
+@keyframes loaderLangCut {
+  0%   { opacity: 0; transform: scale(1.09); }
+  4%   { opacity: 1; transform: scale(1.09); }
+  40%  { opacity: 1; transform: scale(1); }
+  86%  { opacity: 1; }
+  92%  { opacity: 0; }
+  100% { opacity: 0; }
 }
 #loader .lang-latin { font-family: var(--font-display, 'Unbounded'), sans-serif; font-weight: 900; letter-spacing: -0.02em; }
 #loader .lang-ml    { font-family: 'Baloo Chettan 2', sans-serif; font-weight: 700; }

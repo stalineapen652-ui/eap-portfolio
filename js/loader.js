@@ -96,6 +96,13 @@
   }
   loader.appendChild(cuts);
 
+  // Dark backdrop between the images and the text — see css/loader.css
+  // for why (keeps every language readable, not just the ones that
+  // happen to land on a dark photo).
+  var langScrim = document.createElement('div');
+  langScrim.className = 'lang-scrim';
+  loader.appendChild(langScrim);
+
   var langRoll = document.createElement('div');
   langRoll.className = 'lang-roll';
   for (var j = 0; j < langSlots; j++) {

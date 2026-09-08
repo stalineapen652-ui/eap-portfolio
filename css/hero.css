@@ -33,6 +33,18 @@
   position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(26,23,21,.06) 0%, rgba(26,23,21,.32) 58%, rgba(26,23,21,.62) 100%);
 }
+/* Mobile only: the no-hover fallback photo (js/hero-reveal.js swaps in
+   the canvas for pointer/hover devices, but phones get the static
+   .hero-fallback-img) sits directly behind .hero-content with no cursor
+   interaction to help separate the two — the desktop-tuned scrim above
+   (deliberately lightened on an earlier pass) isn't dark enough there
+   for the heading to stay readable against a busy photo. Desktop/tablet
+   keep the lighter overlay above untouched. */
+@media (max-width: 680px) {
+  .hero-reveal .scrim {
+    background: linear-gradient(180deg, rgba(26,23,21,.20) 0%, rgba(26,23,21,.45) 45%, rgba(26,23,21,.84) 100%);
+  }
+}
 
 .hero-reveal .hero-content {
   position: absolute; left: 0; right: 0; bottom: 8vh; z-index: 2; padding: 0 6vw;
