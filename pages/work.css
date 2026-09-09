@@ -75,7 +75,6 @@ main { position: relative; z-index: 2; }
 @keyframes infinityScroll { to { transform: translateY(-50%); } }
 
 /* ───────── PROJECT SECTIONS ───────── */
-.project-section { padding: 5rem 4.5%; position: relative; }
 .proj-index {
     display: inline-block;
     font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
@@ -117,9 +116,6 @@ main { position: relative; z-index: 2; }
 
 @media screen and (max-width: 980px) {
     .more-work-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media screen and (max-width: 980px) {
     .work-hero { grid-template-columns: 1fr; }
     .infinity-box { height: 55vh; }
 }
