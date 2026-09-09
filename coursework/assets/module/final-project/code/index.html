@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KICKERSHOE — Motion Comics: The Untold Origins of Legendary Shoes</title>
+  <meta name="description" content="KICKERSHOE is a shared universe of fictional motion comics — a mantis, a goat, an elephant, a goldfish — each hiding the unofficial origin story behind a legendary shoe or sneaker. Start reading free." />
+  <link rel="icon" href="/assets/logo/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png" />
+  <link rel="canonical" href="https://kickershoe.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="KICKERSHOE" />
+  <meta property="og:title" content="KICKERSHOE — Motion Comics: The Untold Origins of Legendary Shoes" />
+  <meta property="og:description" content="A shared universe of fictional motion comics — a mantis, a goat, an elephant, a goldfish — each hiding the unofficial origin story behind a legendary shoe or sneaker." />
+  <meta property="og:url" content="https://kickershoe.com/" />
+  <meta property="og:image" content="https://kickershoe.com/assets/images/issue-001/1friends.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KICKERSHOE — Motion Comics: The Untold Origins of Legendary Shoes" />
+  <meta name="twitter:description" content="A shared universe of fictional motion comics — a mantis, a goat, an elephant, a goldfish — each hiding the unofficial origin story behind a legendary shoe or sneaker." />
+  <meta name="twitter:image" content="https://kickershoe.com/assets/images/issue-001/1friends.webp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Loaded non-render-blocking: media=print doesn't match on load so the
+       browser fetches it without holding up first paint, then onload flips
+       it to apply. noscript covers browsers/crawlers with JS off. Safe to
+       defer since the fallback-font size-adjust already keeps the later
+       swap from shifting layout. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500&display=swap" media="print" onload="this.media=&#39;all&#39;" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500&display=swap" /></noscript>
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KICKERSHOE",
+    "url": "https://kickershoe.com/",
+    "logo": "https://kickershoe.com/assets/logo/kickershoe-logo.webp",
+    "description": "A shared universe of fictional shoe-origin comics told through motion comics, where invented characters live out the unofficial origin stories of legendary shoe designs.",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "KICKERSHOE",
+    "url": "https://kickershoe.com/",
+    "description": "A shared universe of fictional shoe-origin comics told through motion comics — a mantis, a goat, an elephant, a goldfish, each hiding the unofficial origin story behind a legendary shoe.",
+    "publisher": { "@type": "Organization", "name": "KICKERSHOE", "url": "https://kickershoe.com/" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "KICKERSHOE Issues",
+    "description": "The full KICKERSHOE motion comic library — fictional sneaker and shoe origin stories.",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "url": "https://kickershoe.com/issue-001", "name": "Issue 001: The Mantis Origin" },
+      { "@type": "ListItem", "position": 2, "url": "https://kickershoe.com/issue-002", "name": "Issue 002: The Goat OG" },
+      { "@type": "ListItem", "position": 3, "url": "https://kickershoe.com/issue-003", "name": "Issue 003: The Elephant in the Room" },
+      { "@type": "ListItem", "position": 4, "url": "https://kickershoe.com/issue-004", "name": "Issue 004: The Goldfish Memory" }
+    ]
+  }
+  </script>
+
+</head>
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <!-- <output>, not <aside> — its implicit ARIA role is "status" (a
+       screen-reader live region), which is what a loading indicator
+       actually needs; role="status" isn't a permitted override on <aside>. -->
+  <output aria-label="Loading">
+    <svg viewBox="0 0 300 300" aria-hidden="true">
+      <defs>
+        <filter id="loader-wobble">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="3" seed="7" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+      <path id="loader-spiral" />
+    </svg>
+    <img src="assets/logo/kickershoe-logo.webp" alt="" aria-hidden="true" width="177" height="200" />
+  </output>
+
+  <script>
+    (function () {
+      var loader = document.querySelector('body > output[aria-label="Loading"]');
+      var KEY = 'kickershoe-loaded';
+      var already;
+      try { already = sessionStorage.getItem(KEY); } catch (e) {}
+
+      if (already) {
+        loader.hidden = true;
+        return;
+      }
+
+      var path = loader.querySelector('#loader-spiral');
+      function buildSpiralPath(turns, startR, endR, cx, cy, steps) {
+        var d = '';
+        for (var i = 0; i <= steps; i++) {
+          var t = i / steps;
+          var angle = t * turns * Math.PI * 2;
+          var r = startR + (endR - startR) * t;
+          var x = cx + r * Math.cos(angle);
+          var y = cy + r * Math.sin(angle);
+          d += (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2) + ' ';
+        }
+        return d;
+      }
+      path.setAttribute('d', buildSpiralPath(4.5, 6, 130, 150, 150, 300));
+      var len = path.getTotalLength();
+      path.style.strokeDasharray = (len * 0.22) + ' ' + (len * 0.78);
+      path.animate(
+        [{ strokeDashoffset: 0 }, { strokeDashoffset: -len }],
+        { duration: 3200, iterations: Infinity, easing: 'linear' }
+      );
+
+      var minTime = new Promise(function (resolve) { setTimeout(resolve, 1500); });
+      var loaded = document.readyState === 'complete'
+        ? Promise.resolve()
+        : new Promise(function (resolve) { window.addEventListener('load', resolve, { once: true }); });
+
+      Promise.all([minTime, loaded]).then(function () {
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+        loader.setAttribute('data-closing', '');
+        setTimeout(function () { loader.hidden = true; }, 650);
+      });
+    })();
+  </script>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <a href="#origin" aria-label="KICKERSHOE — home">
+      <img src="assets/logo/SVG/logo.svg" alt="KICKERSHOE" width="575" height="121" />
+    </a>
+  </header>
+
+  <!-- ============ PRIMARY NAV ============ -->
+  <nav aria-label="Primary">
+    <a href="#origin"><img src="assets/icons/SVG/orgin.svg" alt="" width="73" height="36" /><span>Origin</span></a>
+    <a href="about.html"><img src="assets/icons/SVG/about.svg" alt="" width="59" height="69" /><span>About</span></a>
+    <a href="about.html#community"><img src="assets/icons/SVG/connect.svg" alt="" width="62" height="68" /><span>Connect</span></a>
+  </nav>
+
+  <script>
+    (function () {
+      var header = document.querySelector('body > header');
+      function onScroll() {
+        header.toggleAttribute('data-scrolled', window.scrollY > 60);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="origin">
+      <header hidden>
+        <p>
+          <svg class="icon-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M22 16 L22 48 L46 32 Z"/><circle class="dot" cx="32" cy="32" r="3"/></svg>
+          ISSUE 001 — A KICKERSHOE COMIC
+        </p>
+
+        <h1>
+          <span>THE</span>
+          <mark data-text="MANTIS">MANTIS</mark>
+          <span>ORIGIN</span>
+        </h1>
+
+        <p>
+          A motion comic. A footnote in folklore. A shoe born from a broken leg
+          and a quiet vow. <mark>The full story is one click away.</mark>
+        </p>
+
+        <a href="issue-001.html" aria-label="Read Issue 001 — The Mantis Origin, a motion comic sneaker origin story">
+          <img src="assets/images/issue-001/1friends.webp" alt="Preview panel from Issue 001 — The Mantis Origin" width="1280" height="890" />
+          <span>READ ISSUE 001 <span>→</span></span>
+        </a>
+
+        <p>
+          <span>SCROLL</span>
+        </p>
+      </header>
+
+      <article>
+        <svg id="hero-ink-wobble-defs" aria-hidden="true" style="position:absolute;width:0;height:0">
+          <filter id="hero-ink-wobble">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01 0.06" numOctaves="2" seed="4" result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </svg>
+
+        <ul>
+          <li aria-expanded="false">
+            <img src="assets/images/issue-001/1friends.webp" alt="The mantis and his frog friend hidden in the tall grass at night" width="1280" height="890" fetchpriority="high" />
+            <footer>
+              <h2>THE MANTIS ORIGIN</h2>
+              <p>A shoe born from a broken leg and a quiet vow.</p>
+              <a href="issue-001.html" aria-label="Read Issue 001 — The Mantis Origin, a motion comic sneaker origin story"><span>READ ISSUE 001</span><span>→</span></a>
+            </footer>
+          </li>
+          <li aria-expanded="false">
+            <img src="assets/images/issue-003/1locker.webp" alt="A goat boxer sitting alone in a dim locker room, wrapping his hands" width="1420" height="821" />
+            <footer>
+              <h2>THE GOAT OG</h2>
+              <p>An undersized goat, a ring stacked against him, and the boot forged in defeat.</p>
+              <a href="issue-002.html" aria-label="Read Issue 002 — The Goat OG, the motion comic origin story behind the F50 boot"><span>READ ISSUE 002</span><span>→</span></a>
+            </footer>
+          </li>
+          <li aria-expanded="false">
+            <img src="assets/images/issue-002/1dribble.webp" alt="A young elephant dribbling a basketball alone on a city street court at night" width="1600" height="1112" />
+            <footer>
+              <h2>THE ELEPHANT IN THE ROOM</h2>
+              <p>A basketball dream, a broken hop, and the high-top that started it all.</p>
+              <a href="issue-003.html" aria-label="Read Issue 003 — The Elephant in the Room, the Converse Originals sneaker origin story"><span>READ ISSUE 003</span><span>→</span></a>
+            </footer>
+          </li>
+          <li aria-expanded="false">
+            <img src="assets/images/issue-004/1storm.webp" alt="A swimmer reaching for a goldfish amid a violent storm" width="1266" height="695" />
+            <footer>
+              <h2>THE GOLDFISH MEMORY</h2>
+              <p>A tiny fish, a big obsession, and the shoe born from missing something orange.</p>
+              <a href="issue-004.html" aria-label="Read Issue 004 — The Goldfish Memory, a motion comic sneaker origin story"><span>READ ISSUE 004</span><span>→</span></a>
+            </footer>
+          </li>
+        </ul>
+      </article>
+
+      <nav aria-label="Hero slides">
+        <button aria-current="true" aria-label="Slide 1 — The Universe"></button>
+        <button aria-current="false" aria-label="Slide 2 — Origin"></button>
+      </nav>
+    </section>
+
+    <!-- ============ ISSUES ============ -->
+    <section id="issues" hidden>
+      <header>
+        <p><svg class="icon-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 18 H48 V38 Q48 42 44 42 H28 L20 50 V42 H20 Q16 42 16 38 Z"/><circle class="dot" cx="32" cy="29" r="3"/></svg>// THE LIBRARY</p>
+        <h2>ISSUES</h2>
+      </header>
+      <ul>
+        <li>
+          <a href="issue-001.html">
+            <article>
+              <img src="assets/images/issue-001/1friends.webp" alt="Issue 001 cover" width="1280" height="890" />
+              <data value="001"><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 18 H48 V38 Q48 42 44 42 H28 L20 50 V42 H20 Q16 42 16 38 Z"/><circle class="dot" cx="32" cy="29" r="3"/></svg>#001</data>
+              <mark>OUT NOW</mark>
+              <footer>
+                <p><time datetime="2026-04">APR 2026</time></p>
+                <h3>THE MANTIS ORIGIN</h3>
+              </footer>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="issue-002.html">
+            <article>
+              <img src="assets/images/issue-003/1locker.webp" alt="Issue 002 cover" width="1420" height="821" />
+              <data value="002"><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 18 H48 V38 Q48 42 44 42 H28 L20 50 V42 H20 Q16 42 16 38 Z"/><circle class="dot" cx="32" cy="29" r="3"/></svg>#002</data>
+              <mark>OUT NOW</mark>
+              <footer>
+                <p><time datetime="2026-08">AUG 2026</time></p>
+                <h3>THE GOAT OG</h3>
+              </footer>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="issue-003.html">
+            <article>
+              <img src="assets/images/issue-002/1dribble.webp" alt="Issue 003 cover" width="1600" height="1112" />
+              <data value="003"><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 18 H48 V38 Q48 42 44 42 H28 L20 50 V42 H20 Q16 42 16 38 Z"/><circle class="dot" cx="32" cy="29" r="3"/></svg>#003</data>
+              <mark>OUT NOW</mark>
+              <footer>
+                <p><time datetime="2026-08">AUG 2026</time></p>
+                <h3>THE ELEPHANT IN THE ROOM</h3>
+              </footer>
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="issue-004.html">
+            <article>
+              <img src="assets/images/issue-004/1storm.webp" alt="Issue 004 cover" width="1266" height="695" />
+              <data value="004"><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 18 H48 V38 Q48 42 44 42 H28 L20 50 V42 H20 Q16 42 16 38 Z"/><circle class="dot" cx="32" cy="29" r="3"/></svg>#004</data>
+              <mark>OUT NOW</mark>
+              <footer>
+                <p><time datetime="2026-08">AUG 2026</time></p>
+                <h3>THE GOLDFISH MEMORY</h3>
+              </footer>
+            </article>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ THE SHOE ============ -->
+    <section id="shoe">
+      <header>
+        <p><svg class="icon-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 44 Q14 30 22 24 Q28 19 36 22 Q46 26 48 36 Q49 42 44 44 L16 44 Q13 44 14 40 Z"/><circle class="dot" cx="40" cy="30" r="3"/></svg>// CASE FILE — OBJECT 001</p>
+        <h2>THE <mark>SHOE</mark></h2>
+        <p>
+          Photographed under low light. Recovered from the long grass after the
+          third match. Material analysis pending. <mark>Do not touch the sole.</mark>
+        </p>
+      </header>
+
+      <figure>
+        <img src="assets/images/shoe/mantis-shoe.webp" srcset="assets/images/shoe/mantis-shoe-sm.webp 700w, assets/images/shoe/mantis-shoe.webp 1166w" sizes="(max-width: 720px) calc(100vw - 64px), 1500px" alt="The Mantis boot floating in green light" width="1166" height="652" />
+
+        <aside>
+          <p>[01] EXOSKELETON GRIP</p>
+          <p>Woven exo-mesh upper. Bites turf like mandibles.</p>
+        </aside>
+        <aside>
+          <p>[02] AGILITY WEAVE</p>
+          <p>Lateral flex panels. Twist, pivot, vanish.</p>
+        </aside>
+        <aside>
+          <p>[03] THE MANTIS SOLE</p>
+          <p>Eight-stud chitin plate. Forged from molt.</p>
+        </aside>
+        <aside>
+          <p>[04] GOLD SUTURE</p>
+          <p>Hand-stitched 24k filament. A scar that shines.</p>
+        </aside>
+      </figure>
+    </section>
+
+    <!-- ============ LORE ============ -->
+    <section id="lore">
+      <p aria-hidden="true">
+        <svg viewBox="0 0 1600 56" preserveAspectRatio="none">
+          <defs>
+            <g id="lore-ring">
+              <circle cx="0" cy="28" r="9" fill="none" stroke="var(--bone)" stroke-width="2.2" />
+              <circle cx="0" cy="28" r="2" fill="var(--primary)" />
+            </g>
+            <circle id="lore-dot" cx="0" cy="28" r="3" fill="var(--bone)" />
+          </defs>
+          <use href="#lore-ring" x="20" /><use href="#lore-dot" x="75" />
+          <use href="#lore-ring" x="130" /><use href="#lore-dot" x="185" />
+          <use href="#lore-ring" x="240" /><use href="#lore-dot" x="295" />
+          <use href="#lore-ring" x="350" /><use href="#lore-dot" x="405" />
+          <use href="#lore-ring" x="460" /><use href="#lore-dot" x="515" />
+          <use href="#lore-ring" x="570" /><use href="#lore-dot" x="625" />
+          <use href="#lore-ring" x="680" /><use href="#lore-dot" x="735" />
+          <use href="#lore-ring" x="790" /><use href="#lore-dot" x="845" />
+          <use href="#lore-ring" x="900" /><use href="#lore-dot" x="955" />
+          <use href="#lore-ring" x="1010" /><use href="#lore-dot" x="1065" />
+          <use href="#lore-ring" x="1120" /><use href="#lore-dot" x="1175" />
+          <use href="#lore-ring" x="1230" /><use href="#lore-dot" x="1285" />
+          <use href="#lore-ring" x="1340" /><use href="#lore-dot" x="1395" />
+          <use href="#lore-ring" x="1450" /><use href="#lore-dot" x="1505" />
+          <use href="#lore-ring" x="1560" />
+        </svg>
+      </p>
+
+      <header>
+        <p><svg class="icon-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 24 H48 M16 32 H48 M16 40 H40"/><circle class="dot" cx="20" cy="18" r="3"/></svg>// FIELD NOTES — RESTRICTED</p>
+        <h2>LORE</h2>
+      </header>
+
+      <aside>
+        <header>
+          <span>FILE</span>
+          <span>0x14-MNTS</span>
+        </header>
+        <p>The following entries were recovered from a notebook left in section G of the locker room. Pages stained green. Handwriting unidentified. Reproduced without correction.</p>
+        <p>— EDITOR, KICKERSHOE</p>
+      </aside>
+
+      <div>
+        <details open>
+          <summary><span>ENTRY 01</span><span>WHO IS THE MANTIS?</span><span>+</span></summary>
+          <p>Born in the wet grass east of the river. Smaller than his peers. Quieter. He watched football from behind a leaf for nine seasons before he ever touched a ball. He is, by all accounts, still alive.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 02</span><span>THE BOOT'S FIRST MATCH</span><span>+</span></summary>
+          <p>A back-alley five-a-side, no name on the sheet. Player wore them straight from a paper bag. Scored four. Vanished at half-time. The bag was never returned.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 03</span><span>THE HIDDEN INSPIRATION</span><span>+</span></summary>
+          <p>A page torn from the same notebook shows slow-motion sketches of a free-kick stance — weight back, chest out, exactly 2.3 seconds of stillness before contact. Cross-referenced against known footage, the resemblance to a certain Portuguese forward is, we're told, "statistically improbable to be coincidental." Nobody involved will go on record. Nobody involved has denied it either.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 04</span><span>THE DESIGN BRIEF</span><span>+</span></summary>
+          <p>Nothing on this boot is decorative. The forward-raked ankle collar mirrors a mantis's raptorial forelimb — cocked, patient, built for one explosive strike rather than ninety patient minutes of chasing the game. The eight-stud sole plate spreads push-off force the way a mantis balances across four rear legs: silent until it isn't. The one flourish that isn't structural — the gold suture at the heel — exists purely because a certain someone has never worn a boot without a signature detail, and old habits are apparently contagious, even second-hand.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 05</span><span>WHY GREEN?</span><span>+</span></summary>
+          <p>Because invisibility is a kind of armour. Because the grass owes him nothing and everything. Because gold without green is just a bruise.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 06</span><span>THE GOLD STITCHING</span><span>+</span></summary>
+          <p>Filament is real. We tested it. We don't know where he gets it. He won't say.</p>
+        </details>
+        <details>
+          <summary><span>ENTRY 07</span><span>THE PITCH</span><span>+</span></summary>
+          <p>Internally logged as Project SIUUU STOMPER. Shopped, under a fake company name, to four major boot manufacturers. Two called the design "derivative." One asked, seriously, whether the mantis was trademarked. One went quiet for six weeks and came back asking for worldwide exclusive rights — at which point we stopped answering the phone, because by then we'd already decided: this one isn't for sale. If a certain someone in Riyadh or Turin is reading this, though — the mantis already built it for you. He doesn't do phone calls. Try leaving a leaf.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ JOIN ============ -->
+    <section id="join">
+      <!-- <figure>, not <article> — article is "sectioning content" and
+           resets the heading outline, so the h2 below wouldn't count as
+           this <section>'s own heading (the exact warning this avoids).
+           figure is plain grouping content, so it doesn't. -->
+      <figure>
+        <header>
+          <p><svg class="icon-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 20 Q32 14 44 20 Q50 32 44 44 Q32 50 20 44 Q14 32 20 20 Z M32 26 V38 M26 32 H38"/></svg>// TRANSMISSION INCOMING</p>
+          <h2>GET THE NEXT<br /><mark>ISSUE</mark> DROPPED<br />TO YOUR INBOX.</h2>
+          <p>One email per chapter. No filler, no tracking pixels in the noscript. Just the next page of the story, the moment it's printed.</p>
+        </header>
+
+        <form>
+          <input type="hidden" name="access_key" value="164b9250-9f6d-450f-9160-01b399c76184" />
+          <input type="hidden" name="subject" value="New KICKERSHOE newsletter signup" />
+          <input type="hidden" name="from_name" value="KICKERSHOE" />
+          <label>
+            READER ID — EMAIL
+            <input type="email" name="email" required placeholder="you@example.com" />
+          </label>
+          <input type="checkbox" name="botcheck" hidden tabindex="-1" aria-label="Leave this field blank" />
+          <button type="submit">
+            <span>SEND ME THE NEXT ISSUE</span><span>→</span>
+          </button>
+          <p>UNSUBSCRIBE WITH A SHED OF SKIN</p>
+          <p hidden data-state="success">RECEIVED. THE MANTIS HAS YOUR FREQUENCY.</p>
+          <p hidden data-state="error">SIGNAL LOST. TRY AGAIN IN A MOMENT.</p>
+        </form>
+      </figure>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="More">
+      <a href="#issues">Issues</a>
+      <a href="#shoe">The Shoe</a>
+      <a href="#lore">Lore</a>
+    </nav>
+    <p><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 44 Q14 30 22 24 Q28 19 36 22 Q46 26 48 36 Q49 42 44 44 L16 44 Q13 44 14 40 Z"/><circle class="dot" cx="40" cy="30" r="3"/></svg>© KICKERSHOE COMICS — PRINTED IN THE GRASS</p>
+    <p><svg class="icon-mark icon-mark--sm" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 18 L36 28 L47 28 L38 35 L41 46 L32 39 L23 46 L26 35 L17 28 L28 28 Z"/></svg><span>ISSN 0042-1996</span> <mark>EST. 2026</mark></p>
+  </footer>
+
+  <button aria-label="Toggle animations" aria-pressed="true">
+    <span></span>
+    <span>JS ON</span>
+  </button>
+
+  <script>
+    document.querySelector('body > button[aria-label="Toggle animations"]').addEventListener('click', function () {
+      var pressed = this.getAttribute('aria-pressed') === 'true';
+      var enabled = !pressed;
+      this.setAttribute('aria-pressed', String(enabled));
+      this.querySelector('span:last-child').textContent = enabled ? 'JS ON' : 'JS OFF';
+      if (enabled) {
+        document.documentElement.removeAttribute('data-motion');
+      } else {
+        document.documentElement.setAttribute('data-motion', 'off');
+      }
+      document.dispatchEvent(new CustomEvent('kickershoe:motionchange', { detail: { enabled: enabled } }));
+    });
+
+    document.querySelector('#join form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var form = this;
+      var button = form.querySelector('button[type="submit"]');
+      var success = form.querySelector('p[data-state="success"]');
+      var error = form.querySelector('p[data-state="error"]');
+
+      error.hidden = true;
+      button.disabled = true;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            Array.prototype.forEach.call(form.children, function (child) {
+              if (child !== success) child.hidden = true;
+            });
+            success.hidden = false;
+          } else {
+            error.hidden = false;
+            button.disabled = false;
+          }
+        })
+        .catch(function () {
+          error.hidden = false;
+          button.disabled = false;
+        });
+    });
+  </script>
+
+  <script>
+    (function () {
+      var origin = document.querySelector('#origin');
+      var slides = [origin.querySelector(':scope > article'), origin.querySelector(':scope > header')];
+      var dots = origin.querySelectorAll(':scope > nav button');
+      var issuesSection = document.querySelector('#issues');
+      var current = 0;
+      var osReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function motionOff() { return osReduceMotion || document.documentElement.getAttribute('data-motion') === 'off'; }
+      var autoplayTimer = null;
+
+      function showSlide(index) {
+        slides.forEach(function (slide, i) { slide.hidden = i !== index; });
+        dots.forEach(function (dot, i) { dot.setAttribute('aria-current', String(i === index)); });
+        if (issuesSection) issuesSection.hidden = index === 0;
+        current = index;
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+      }
+
+      function startAutoplay() {
+        if (motionOff()) return;
+        stopAutoplay();
+        autoplayTimer = setInterval(function () {
+          showSlide((current + 1) % slides.length);
+        }, 7000);
+      }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          showSlide(i);
+          startAutoplay();
+        });
+      });
+
+      origin.addEventListener('mouseenter', stopAutoplay);
+      origin.addEventListener('mouseleave', startAutoplay);
+
+      showSlide(0);
+      startAutoplay();
+
+      var panelImages = [
+        ['assets/images/issue-001/1friends.webp', 'assets/images/issue-001/6shoe.webp', 'assets/images/issue-001/9backside.webp'],
+        ['assets/images/issue-003/1locker.webp', 'assets/images/issue-003/8victory.webp', 'assets/images/issue-003/12f50.webp'],
+        ['assets/images/issue-002/1dribble.webp', 'assets/images/issue-002/5spring-shoe.webp', 'assets/images/issue-002/8world.webp'],
+        ['assets/images/issue-004/1storm.webp', 'assets/images/issue-004/8display.webp', 'assets/images/issue-004/12sunset.webp']
+      ];
+      var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var panels = origin.querySelectorAll(':scope > article > ul > li');
+      var stopCycles = [];
+
+      panels.forEach(function (li, i) {
+        var img = li.querySelector('img');
+        var imgs = panelImages[i];
+        var cycleTimer = null;
+        var lastIndex = 0;
+
+        function startCycle() {
+          if (motionOff() || imgs.length < 2) return;
+          cycleTimer = setInterval(function () {
+            var next = lastIndex;
+            while (next === lastIndex) next = Math.floor(Math.random() * imgs.length);
+            lastIndex = next;
+            img.style.opacity = 0;
+            setTimeout(function () {
+              img.src = imgs[next];
+              img.style.opacity = 1;
+            }, 300);
+          }, 2100);
+        }
+
+        function stopCycle() {
+          clearInterval(cycleTimer);
+          lastIndex = 0;
+          img.src = imgs[0];
+          img.style.opacity = 1;
+        }
+        stopCycles.push(stopCycle);
+
+        function expand() {
+          panels.forEach(function (other) { other.setAttribute('aria-expanded', 'false'); });
+          li.setAttribute('aria-expanded', 'true');
+          startCycle();
+        }
+
+        function collapse() {
+          li.setAttribute('aria-expanded', 'false');
+          stopCycle();
+        }
+
+        if (canHover) {
+          li.addEventListener('mouseenter', expand);
+          li.addEventListener('mouseleave', collapse);
+        } else {
+          li.addEventListener('click', function (event) {
+            if (event.target.closest('a')) return;
+            if (li.getAttribute('aria-expanded') === 'true') {
+              collapse();
+            } else {
+              expand();
+            }
+          });
+        }
+      });
+
+      document.addEventListener('kickershoe:motionchange', function (event) {
+        if (event.detail.enabled) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+          stopCycles.forEach(function (fn) { fn(); });
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
