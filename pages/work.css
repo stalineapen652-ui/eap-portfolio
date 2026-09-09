@@ -75,107 +75,187 @@ main { position: relative; z-index: 2; }
 @keyframes infinityScroll { to { transform: translateY(-50%); } }
 
 /* ───────── PROJECT SECTIONS ───────── */
-.project-section { padding: 5rem 4.5%; position: relative; }
-.project-box {
-    max-width: 1150px;
-    margin: 0 auto;
-    background: #fff8ee;
-    border: 1.5px solid var(--ink);
-    border-radius: 30px;
-    padding: clamp(1.6rem, 4vw, 3.5rem);
-    box-shadow: var(--shadow-sm);
-}
-.project-header { margin-bottom: 2.4rem; }
 .proj-index {
     display: inline-block;
     font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
     color: var(--accent-deep); font-weight: 600; margin-bottom: 1rem;
 }
 .proj-index.center { display: block; text-align: center; }
-.project-title {
+
+/* More work — Behance grid */
+.more-work { padding: 6rem 4.5%; text-align: center; }
+.more-work-head { max-width: 640px; margin: 0 auto 3rem; }
+.more-work-title {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 1.2rem;
-    /* .project-box is a light card (#fff8ee) — without this it inherits
-       the page's default light --ink text color, reading as barely
-       visible cream-on-cream */
-    color: var(--paper);
-}
-.project-text {
-    max-width: 60ch;
-    font-size: 0.98rem;
-    line-height: 1.8;
-    color: rgba(26, 23, 21, 0.75); /* dark, not --ink-soft — same light-card issue as .project-title */
-}
-.project-images { display: flex; flex-direction: column; gap: 1.4rem; }
-.full-width-img {
-    width: 100%;
-    border-radius: 18px;
-    object-fit: cover;
-    box-shadow: var(--shadow-sm);
-}
-
-/* Rasam link box */
-.rasam-linkbox {
-    position: relative;
-    display: block;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-.rasam-img { width: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
-.rasam-linkbox:hover .rasam-img { transform: scale(1.04); }
-.rasam-visit {
-    position: absolute;
-    right: 1.2rem; bottom: 1.2rem;
-    background: var(--accent);
-    color: #fff;
-    padding: 0.7rem 1.4rem;
-    border-radius: 100px;
-    font-size: 0.85rem; font-weight: 600;
-    transform: translateY(8px);
-    opacity: 0;
-    transition: transform 0.4s var(--ease-spring), opacity 0.4s;
-}
-.rasam-linkbox:hover .rasam-visit { transform: translateY(0); opacity: 1; }
-
-/* Social media gallery */
-.section-social { text-align: center; }
-.social-title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-size: clamp(2.2rem, 6vw, 4rem);
     letter-spacing: -1px;
-    margin-bottom: 2rem;
     text-transform: lowercase;
+    margin: 0.6rem 0 1rem;
 }
-.social-box {
-    max-width: 560px;
+.more-work-lead { font-size: 0.98rem; line-height: 1.7; color: var(--ink-soft); }
+.more-work-grid {
+    max-width: 1150px;
     margin: 0 auto;
-    aspect-ratio: 4 / 5;
-    border-radius: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    text-align: left;
+}
+.more-work-card {
+    display: block;
+    border-radius: 16px;
     overflow: hidden;
-    position: relative;
-    border: 6px solid #fff8ee;
-    box-shadow: var(--shadow);
+    border: 1px solid var(--ink-faint);
     background: var(--paper-2);
+    transition: transform 0.35s var(--ease-out), border-color 0.35s;
 }
-.social-gallery { position: relative; width: 100%; height: 100%; }
-.gallery-img {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transform: scale(1.04);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.gallery-img.active { opacity: 1; transform: scale(1); }
+.more-work-card:hover { transform: translateY(-4px); border-color: var(--accent-2); }
+.more-work-card img { width: 100%; aspect-ratio: 4 / 3.1; object-fit: cover; }
+.more-work-card-title { display: block; padding: 0.8rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--ink); }
 
 @media screen and (max-width: 980px) {
+    .more-work-grid { grid-template-columns: repeat(2, 1fr); }
     .work-hero { grid-template-columns: 1fr; }
     .infinity-box { height: 55vh; }
+}
+
+/* ───────── CHAPTER NAV ───────── */
+.chapter-nav {
+    position: sticky;
+    top: 1rem;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0 auto 3rem;
+    padding: 0 4.5%;
+}
+.chapter-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 100px;
+    border: 1px solid var(--ink-faint);
+    background: rgba(26, 23, 21, 0.6);
+    backdrop-filter: blur(8px);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+.chapter-nav-link .num { opacity: 0.6; }
+.chapter-nav-link.active,
+.chapter-nav-link:hover {
+    color: var(--ink);
+    border-color: var(--accent-2);
+    background: rgba(47, 38, 32, 0.85);
+}
+
+/* ───────── CHAPTERS ───────── */
+.chapter { position: relative; padding: 6rem 4.5%; overflow: hidden; }
+.chapter-tint { position: absolute; inset: 0; background: var(--chapter-tint); pointer-events: none; z-index: 0; }
+.chapter-inner { position: relative; z-index: 1; max-width: 1150px; margin: 0 auto; }
+.chapter-head { margin-bottom: 2.6rem; max-width: 70ch; }
+.chapter-index {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--chapter-accent);
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+}
+.chapter-meta {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+}
+.chapter-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 0.94;
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
+.chapter-brief {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 56ch;
+}
+.chapter-beats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-bottom: 2.8rem;
+}
+.chapter-beat h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--chapter-accent);
+    margin-bottom: 0.7rem;
+}
+.chapter-beat p { font-size: 0.92rem; line-height: 1.7; color: var(--ink-soft); }
+.chapter-gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.2rem; }
+.chapter-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+}
+.chapter-gallery-main { grid-row: span 2; aspect-ratio: 4 / 3.1; }
+.chapter-gallery-sub { aspect-ratio: 4 / 3; }
+.chapter-live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 100px;
+    background: var(--chapter-accent);
+    color: #0d0b0a;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: transform 0.3s var(--ease-spring);
+}
+.chapter-live-link:hover { transform: translateY(-2px); }
+
+/* per-brand tints — restrained washes on top of the page's own dark
+   surface, not a full palette swap (see design spec) */
+.chapter--kickershoe {
+    --chapter-tint: radial-gradient(circle at 15% 0%, rgba(57,255,20,0.10) 0%, transparent 45%),
+                     radial-gradient(circle at 100% 100%, rgba(154,28,227,0.18) 0%, transparent 55%);
+    --chapter-accent: #7cf25c;
+}
+.chapter--rasam {
+    --chapter-tint: radial-gradient(circle at 85% 0%, rgba(217,178,95,0.12) 0%, transparent 45%),
+                     radial-gradient(circle at 0% 100%, rgba(20,80,55,0.35) 0%, transparent 55%);
+    --chapter-accent: #d9b25f;
+}
+.chapter--malker {
+    --chapter-tint: radial-gradient(circle at 10% 10%, rgba(111,168,245,0.14) 0%, transparent 50%);
+    --chapter-accent: #6fa8f5;
+}
+.chapter--alfs {
+    --chapter-tint: radial-gradient(circle at 90% 10%, rgba(226,96,79,0.14) 0%, transparent 50%);
+    --chapter-accent: #e2604f;
+}
+
+@media screen and (max-width: 820px) {
+    .chapter-beats { grid-template-columns: 1fr; }
+    .chapter-gallery { grid-template-columns: 1fr; }
+    .chapter-gallery-main { grid-row: auto; }
+    .chapter-nav { position: static; }
 }

@@ -48,15 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* crossfading social gallery */
-    const galleryImgs = document.querySelectorAll(".gallery-img");
-    if (galleryImgs.length) {
-        let i = 0;
-        setInterval(() => {
-            galleryImgs[i].classList.remove("active");
-            i = (i + 1) % galleryImgs.length;
-            galleryImgs[i].classList.add("active");
-        }, 2600);
+    /* chapter-nav scroll-spy */
+    const navLinks = document.querySelectorAll(".chapter-nav-link");
+    const chapters = document.querySelectorAll(".chapter[id]");
+    if (navLinks.length && chapters.length && "IntersectionObserver" in window) {
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach((link) => link.classList.toggle(
+                        "active", link.dataset.chapter === entry.target.id
+                    ));
+                }
+            });
+        }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
+        chapters.forEach((ch) => spy.observe(ch));
     }
 
     /* footer */
@@ -64,6 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         opacity: 0, y: 36, duration: 0.9, stagger: 0.1, ease: "power3.out",
         scrollTrigger: { trigger: ".site-footer", start: "top 82%", toggleActions: "play none none reverse" }
     });
+
+    document.querySelectorAll('.chapter-nav-link').forEach(link => link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById(link.getAttribute("href").slice(1));
+        if (!target) return;
+        lenis ? lenis.scrollTo(target) : target.scrollIntoView({ behavior: "smooth" });
+    }));
 
     document.querySelectorAll('.to-top').forEach(btn => btn.addEventListener("click", (e) => {
         e.preventDefault();
