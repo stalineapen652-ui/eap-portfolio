@@ -414,12 +414,14 @@ aside .module-btn {
 }
 
 /* "Project Files" button: same border/fill/type as every other module-btn —
-   only the top-right corner is chamfered off and filled solid, like the
-   folded corner (dog-ear) on a file/document icon, to read as "this links
-   to a folder of files" without adding any other visual difference. */
+   only the top-right corner reads as a folded file/document icon (a thin
+   diagonal cut plus the small curled fold-line inside it), to signal
+   "this opens a folder of files". A touch taller than its aside.module-btn
+   siblings elsewhere on the site, so it's scoped to this modifier only. */
 .module-btn--files {
     position: relative;
     border-top-right-radius: 0;
+    min-height: 13vh;
 }
 
 .module-btn--files::before {
@@ -427,11 +429,11 @@ aside .module-btn {
     position: absolute;
     top: -3px;
     right: -3px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 34px 34px 0;
-    border-color: transparent #000 transparent transparent;
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 0 L40 0 L40 32 Z' fill='%23fff'/%3E%3Cpath d='M8 0 L40 32' stroke='%23000' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Cpath d='M14 11 Q14 20 25 20' stroke='%23000' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 .bottom-modules {
@@ -448,15 +450,17 @@ aside .module-btn {
     font-weight: 300;
 }
 
-/* Project detail page variant: no sidebar content, so the bottom row of
-   buttons is confined to the featured card's own column (ending flush
-   with its right edge) instead of spanning the full container width. */
+/* Project detail page variant: the bottom row of buttons is confined to
+   the featured card's own column (ending flush with its right edge)
+   instead of spanning the full container width. The sidebar area now
+   also fills that row, so its aside (flex, justify-content: flex-end)
+   bottoms out flush with the bottom-modules row underneath it. */
 .project-detail {
     grid-template-areas:
         "featured header"
         "featured sidebar"
         "featured sidebar"
-        "bottom .";
+        "bottom sidebar";
 }
 
 .project-detail .bottom-modules {
