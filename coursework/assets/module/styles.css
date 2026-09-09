@@ -416,11 +416,12 @@ aside .module-btn {
 /* "Project Files" button: same border/fill/type as every other module-btn —
    only the top-right corner reads as a folded file/document icon (a thin
    diagonal cut plus the small curled fold-line inside it), to signal
-   "this opens a folder of files". A touch taller than its aside.module-btn
-   siblings elsewhere on the site, so it's scoped to this modifier only. */
+   "this opens a folder of files". Grows (flex: 1) to fill the aside's
+   entire empty column instead of sitting as a short bar at the bottom. */
 .module-btn--files {
     position: relative;
     border-top-right-radius: 0;
+    flex: 1;
     min-height: 13vh;
 }
 
