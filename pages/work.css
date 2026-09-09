@@ -83,38 +83,41 @@ main { position: relative; z-index: 2; }
 }
 .proj-index.center { display: block; text-align: center; }
 
-/* Social media gallery */
-.section-social { text-align: center; }
-.social-title {
+/* More work — Behance grid */
+.more-work { padding: 6rem 4.5%; text-align: center; }
+.more-work-head { max-width: 640px; margin: 0 auto 3rem; }
+.more-work-title {
     font-family: var(--font-display);
     font-weight: 800;
-    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-size: clamp(2.2rem, 6vw, 4rem);
     letter-spacing: -1px;
-    margin-bottom: 2rem;
     text-transform: lowercase;
+    margin: 0.6rem 0 1rem;
 }
-.social-box {
-    max-width: 560px;
+.more-work-lead { font-size: 0.98rem; line-height: 1.7; color: var(--ink-soft); }
+.more-work-grid {
+    max-width: 1150px;
     margin: 0 auto;
-    aspect-ratio: 4 / 5;
-    border-radius: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    text-align: left;
+}
+.more-work-card {
+    display: block;
+    border-radius: 16px;
     overflow: hidden;
-    position: relative;
-    border: 6px solid #fff8ee;
-    box-shadow: var(--shadow);
+    border: 1px solid var(--ink-faint);
     background: var(--paper-2);
+    transition: transform 0.35s var(--ease-out), border-color 0.35s;
 }
-.social-gallery { position: relative; width: 100%; height: 100%; }
-.gallery-img {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transform: scale(1.04);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+.more-work-card:hover { transform: translateY(-4px); border-color: var(--accent-2); }
+.more-work-card img { width: 100%; aspect-ratio: 4 / 3.1; object-fit: cover; }
+.more-work-card-title { display: block; padding: 0.8rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+
+@media screen and (max-width: 980px) {
+    .more-work-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.gallery-img.active { opacity: 1; transform: scale(1); }
 
 @media screen and (max-width: 980px) {
     .work-hero { grid-template-columns: 1fr; }

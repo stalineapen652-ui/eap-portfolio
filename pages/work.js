@@ -48,17 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* crossfading social gallery */
-    const galleryImgs = document.querySelectorAll(".gallery-img");
-    if (galleryImgs.length) {
-        let i = 0;
-        setInterval(() => {
-            galleryImgs[i].classList.remove("active");
-            i = (i + 1) % galleryImgs.length;
-            galleryImgs[i].classList.add("active");
-        }, 2600);
-    }
-
     /* footer */
     gsap.from(".footer-card > *", {
         opacity: 0, y: 36, duration: 0.9, stagger: 0.1, ease: "power3.out",
