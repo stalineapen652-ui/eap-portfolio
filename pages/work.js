@@ -70,6 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: { trigger: ".site-footer", start: "top 82%", toggleActions: "play none none reverse" }
     });
 
+    document.querySelectorAll('.chapter-nav-link').forEach(link => link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.getElementById(link.getAttribute("href").slice(1));
+        if (!target) return;
+        lenis ? lenis.scrollTo(target) : target.scrollIntoView({ behavior: "smooth" });
+    }));
+
     document.querySelectorAll('.to-top').forEach(btn => btn.addEventListener("click", (e) => {
         e.preventDefault();
         lenis ? lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: "smooth" });
