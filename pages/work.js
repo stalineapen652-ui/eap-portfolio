@@ -48,6 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* chapter-nav scroll-spy */
+    const navLinks = document.querySelectorAll(".chapter-nav-link");
+    const chapters = document.querySelectorAll(".chapter[id]");
+    if (navLinks.length && chapters.length && "IntersectionObserver" in window) {
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach((link) => link.classList.toggle(
+                        "active", link.dataset.chapter === entry.target.id
+                    ));
+                }
+            });
+        }, { rootMargin: "-40% 0px -50% 0px", threshold: 0 });
+        chapters.forEach((ch) => spy.observe(ch));
+    }
+
     /* footer */
     gsap.from(".footer-card > *", {
         opacity: 0, y: 36, duration: 0.9, stagger: 0.1, ease: "power3.out",
